@@ -34,6 +34,24 @@
         figcaption {
             font-size: 9px;
         }
+
+        /* 백신 글자만 빨간색 */
+        span {
+            color: red;
+        }
+
+        /* 삼성바이오로직스만 파란색,두껍게 */
+        .bl{
+            color:blue; font-weight:bold;
+        }
+
+        /* 테이블 요소 */
+        #tbl{
+            width:316px; border: 1px solid #ccc; /* 테두리 */
+            padding:5px;
+        }
+
+
     </style>
     <!-- 
         style 요소 : css문법구역
@@ -69,18 +87,23 @@
         <hr>
         <!-- hr요소 : 가로구분선(css디자인시 사용안함) -->
         <!-- 3. 메인컨텐츠 -->
+        <!-- 언론사 정보영역 -->
+        <div>
+            <img src="images/at1-1.png" alt="연합뉴스로고">
+        </div>
         <main>
             <!-- 1. 기사 제목 -->
 
-            <h2>김총리, 삼성바이오 방문…"백신주권 확보 역할 당부"</h2>
+            <h2>김총리, 삼성바이오 방문…"<span>백신</span>주권 확보 역할 당부"</h2>
 
 
             <!-- 2. 기사 이미지 -->
             <figure>
                 <img src="images/at1-2.jpg" alt="정치기사사진">
                 <figcaption>
-                    삼성바이오로직스 둘러보는 김부겸 총리
-                    (인천=연합뉴스) 김승두 기자 = 김부겸 국무총리(앞줄 가운데)가 3일 오후 <b>코로나19 백신 위탁생산</b> 현장인 인천시 송도 삼성바이오로직스를 방문해 존림 대표이사(맨
+                    <span class="bl">삼성바이오로직스</span> 둘러보는 김부겸 총리
+                    (인천=연합뉴스) 김승두 기자 = 김부겸 국무총리(앞줄 가운데)가 3일 오후 <b>코로나19 <span>백신</span> 위탁생산</b> 현장인 인천시 송도 <span class="bl">삼성바이오로직스</span>를
+                    방문해 존림 대표이사(맨
                     오른쪽) 등과 함께 홍보관을 둘러보고 있다.
                     2021.9.3 kimsdoo@yna.co.kr
                 </figcaption>
@@ -89,22 +112,23 @@
 
             <!-- 3. 기사 내용 -->
 
-            <p>(서울=연합뉴스) 조민정 기자 = 김부겸 국무총리는 3일 오후 인천 연수구 삼성바이오로직스 본사를 찾아 백신·치료제 생산 현장을 둘러봤다.<abbr
-                    title="아주잘봄">아잘봄</abbr></p>
+            <p>(서울=연합뉴스) 조민정 기자 = 김부겸 국무총리는 3일 오후 인천 연수구 <span class="bl">삼성바이오로직스</span> 본사를 찾아 <span>백신</span>·치료제 생산 현장을 둘러봤다.
+                <abbr title="아주잘봄">아잘봄</abbr></p>
 
-            <p>삼성바이오로직스<sup>①</sup>는 <strong>한미 정상회담을 계기로</strong> 모더나와 백신 <i>위탁생산 계약</i>을 체결한 바 있다.</p>
+            <p><span class="bl">삼성바이오로직스</span><sup>①</sup>는 <strong>한미 정상회담을 계기로</strong> 모더나와 <span>백신</span> <i>위탁생산 계약</i>을 체결한 바 있다.</p>
 
-            <p><mark>김 총리</mark>는 이 자리에서 <q>국민의 삶을 보호하기 위해 <em><ins>코로나</ins>백신이 얼마나 중요한지</em> 절감하고 있다. 삼성바이오로직스가 우리나라의
-                    백신 주권 확보를 위해 적극적인 역할을 해주시기를 바란다</q>고 말했다.</p>
+            <p><mark>김 총리</mark>는 이 자리에서 <q>국민의 삶을 보호하기 위해 <em><ins>코로나</ins><span>백신</span>이 얼마나 중요한지</em> 절감하고 있다.
+                    <span class="bl">삼성바이오로직스</span>가 우리나라의
+                    <span>백신</span> 주권 확보를 위해 적극적인 역할을 해주시기를 바란다</q>고 말했다.</p>
 
             <p><mark>김 총리</mark>는 <q>삼성그룹이 바이오산업<sup>②</sup>에서의 높은 성취를 이뤄 젊은 세대의 일자리<sub>job</sub>를 만들겠다는 야심 찬 비전을
                     보여줬다</q>며 "국민들의 삶에 크게 기여하는 만큼 다음 세대를 위한 준비를 철저히 해주시기를 바란다"고 했다.
 
-                <p>이날 방문에는 존림 삼성바이오로직스 대표이사 사장과 이인용 삼성전자 대외협력 담당 사장, 고한승 삼성바이오에피스 사장 등이 참석했다.<del>나도 참석하고 싶었다</del>.</p>
+                <p>이날 방문에는 존림 <span class="bl">삼성바이오로직스</span> 대표이사 사장과 이인용 삼성전자 대외협력 담당 사장, 고한승 삼성바이오에피스 사장 등이 참석했다.<del>나도 참석하고 싶었다</del>.</p>
 
-                chomj@yna.co.kr<br>
+                chomj@yna.co.kr<br><br>
 
-                조민정(chomj@yna.co.kr)<br>
+                조민정(chomj@yna.co.kr)<br><br>
 
                 <a href="https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=100&oid=001&aid=0012641381
             " target="_blank">원본기사</a>
@@ -119,7 +143,7 @@
 
                 <hr>
                 <small>① 삼성그룹의 계열사로 2011년 4월 설립되었으며, 국내외 제약회사의 첨단 바이오의약품을 위탁 생산하는 CMO 사업을 영위.</small>
-
+               
                 <small>② 바이오테크놀러지(biotechnology)를 기업화하려는 새로운 산업 분야로 생물 자체 또는 그들이 가지는 고유의 기능을 높이거나 개량하여 자연에는 극히 미량으로 존재하는
                     물질을 대량으로 생산하거나 유용한 생물을 만들어내는 산업을 일컫는 용어이다. </small>
 
@@ -143,7 +167,7 @@
                     </li>
                     <li>
                         <a href="http://yna.kr/AKR20210903096900056?source=1195p" target="_blank">
-                            "교사 꿈꾸던 딸, 백신 맞고 숨졌는데…정부는 무책임"
+                            "교사 꿈꾸던 딸, <span>백신</span> 맞고 숨졌는데…정부는 무책임"
                         </a>
                     </li>
                     <li>
@@ -160,7 +184,7 @@
                     <li>
                         <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=001&aid=0012644450&rankingType=RANKING"
                             target="_blank">
-                            베트남 총리, 삼성전자 찾아 "한국 정부가 백신 확보 도와 …</a>
+                            베트남 총리, 삼성전자 찾아 "한국 정부가 <span>백신</span> 확보 도와 …</a>
                     </li>
                     <li>
                         <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=001&aid=0012644381&rankingType=RANKING"
@@ -224,6 +248,55 @@
                     </dd>
 
                 </dl>
+
+                <hr>
+                <h3>언론사별 가장 많이 본 뉴스</h3>
+
+                <!-- 테이블요소 : 2열 3행 짜리-->
+                <table id="tbl">
+
+                    <tr>
+                        <td>
+                            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=437&aid=0000275463&rankingType=RANKING"
+                                target="_blank">마이크 발로 찬 강윤성, 이번엔 유치장 문 열린 틈타 경찰 …</a>
+                        </td>
+                        <td>
+                            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=437&aid=0000275463&rankingType=RANKING"
+                                target="_blank">
+                                <img src="https://mimgnews.pstatic.net/image/origin/437/2021/09/06/275463.jpg?type=nf88_60"
+                                    alt="기사사진">
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=469&aid=0000627985&rankingType=RANKING"
+                                target="_blank">진짜 '무야홍' 되나? 범보수 후보, 윤석열 28.2%-홍 …</a>
+                        </td>
+                        <td>
+                            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=469&aid=0000627985&rankingType=RANKING"
+                                target="_blank">
+                                <img src="	https://mimgnews.pstatic.net/image/origin/469/2021/09/06/627985.jpg?type=nf88_60"
+                                    alt="기사사진">
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=028&aid=0002559431&rankingType=RANKING"
+                            target="_blank">"김웅 “(김건희 고발장은) 검찰 측 입장에서 전달” 취재기자에 말해</a>
+                        </td>
+                        <td>
+                            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=028&aid=0002559431&rankingType=RANKING"
+                            target="_blank">
+                            <img src="https://mimgnews.pstatic.net/image/origin/028/2021/09/06/2559431.jpg?type=nf88_60"
+                                alt="기사사진">
+                        </td>
+                    </tr>
+
+                </table>
 
         </main>
 

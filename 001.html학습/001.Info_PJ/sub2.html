@@ -24,6 +24,25 @@
             font-style: normal;
             /* 이탤릭 없앰 */
         }
+        span{
+            color:red;
+        }
+        figure {
+            width: 100%;
+        }
+
+        figcaption {
+            font-size: 9px;
+        }
+
+        #tbl_2{
+            width:316px;
+            border:solid 1px rgb(124, 67, 67);
+            padding:5px;
+        }
+       
+        
+
     </style>
     <!-- 
         style 요소 : css문법구역
@@ -59,28 +78,180 @@
         <hr>
         <!-- hr요소 : 가로구분선(css디자인시 사용안함) -->
         <!-- 3. 메인컨텐츠 -->
+
+        <div>
+            <img src="images/at2-1.png" alt="kbs로고">
+        </div>
+
         <main>
             <!-- 1. 기사 제목 -->
-            공정위 “연말부터 공익법인과 내부거래 연 1회 공시해야”
-            기사입력 2021.09.03. 오전 10:21 최종수정 2021.09.03. 오전 10:21
+            <h2>공정위 “연말부터 <span>공익</span>법인과 내부거래 연 1회 공시해야”</h2>
+
             <!-- 2. 기사 이미지 -->
-            
+
+            <figure>
+                <img src="images/at2-2.jpg" alt="경제기사사진">
+                <figcaption>
+                    [사진 출처 : 연합뉴스]
+                </figcaption>
+
+
+            </figure>
+
+
             <!-- 3. 기사 내용 -->
-            올 연말부터 공시대상회사는 공익법인과의 내부 거래 현황을 연 1회 공시해야 합니다.
+            <p>올 연말부터 <b>공시대상회사</b>는 <span>공익</span>법인과의 내부 거래 현황을 연 1회 공시해야 합니다. <del>그렇습니다.</del></p>
 
-            공정거래위원회는 이 같은 내용이 담긴 '대규모 내부거래에 대한 이사회 의결 및 공시에 관한 규정' 등 4개 고시 개정안을 오는 23일까지 행정예고한다고 오늘(3일) 밝혔습니다.
+            <p>공정거래위원회는 이 같은 내용이 담긴 <q>대규모 내부거래에 대한 이사회 의결 및 공시에 관한 규정 등 4개 고시 개정안을 오는 23일까지 행정예고한다</q>고 오늘(3일) 밝혔습니다.
+            </p>
 
-            공정위는 지난해 말 공정거래법 전부 개정으로 신설된 공인법인 및 동일인의 공시 의무가 차질 없이 시행되도록 세부 공시절차 등을 마련한 것이라고 설명했습니다.
+            <p><mark title="공정거래위원회">공정위</mark>는 지난해 말 공정거래법<sup>①</sup> 전부 개정으로 신설된 공인법인 및 동일인의 공시 의무가 차질 없이 시행되도록 세부
+                공시절차 등을 마련한 것이라고 설명했습니다.</p>
 
-            자세한 내용을 보면 우선 공시대상 회사에 공익법인과의 연간 자금, 자산, 상품·용역거래 금액을 연 1회 공시하도록 하는 규정을 신설했습니다. 현재 공시대상 회사는 공익법인을 포함해 비영리법인과의
-            내부거래 중 자금, 유가증권, 자산거래의 각 총액만을 공시하고 있고, 내부거래 비중이 가장 높은 상품·용역거래는 공시 대상이 아닙니다.
+            <p>자세한 내용을 보면 우선 <b>공시대상회사</b>에 <span>공익</span>법인과의 연간 자금, 자산, 상품·용역거래 금액을 연 1회 공시하도록 하는 규정을 신설했습니다. </p>
 
-            하지만 공익법인에 내부거래 등에 대한 이사회 의결 및 공시의무를 부과하는 내용의 공정거래법이 개정됨에 따라 공정위는 공시대상 회사가 공익법인과의 내부거래 현황을 공시하도록 했습니다.
+            <p> 현재 공시대상 회사는 <span>공익</span>법인을 포함해 비영리법인<sup>②</sup>과의 내부거래 중 자금, 유가증권, 자산거래의 각 총액만을 공시하고 있고, 내부거래 비중이 가장 높은 상품·용역거래는
+                공시 대상이 아닙니다.</p>
 
-            [사진 출처 : 연합뉴스]
-            정연우 (nforyou@kbs.co.kr)
+            <p>하지만 <span>공익</span>법인에 내부거래 등에 대한 이사회 의결 및 공시의무를 부과하는 내용의 <em>공정거래법이 개정됨에 따라</em> <mark title="공정거래위원회">공정위</mark>는
+                공시대상 회사가 <span>공익</span>법인과의 내부거래 현황을 공시하도록 했습니다.</p>
 
-            https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=101&oid=056&aid=0011113850
+            [사진 출처 : 연합뉴스]<br><br>
+            정연우 (nforyou@kbs.co.kr)<br><br>
+
+            <a href="https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=101&oid=056&aid=0011113850" target="_blank">
+                원본기사
+            </a>
+
+            <!-- 인용구 -->
+            <hr>
+            <small
+                cite="https://ko.wikipedia.org/wiki/%EB%8F%85%EC%A0%90%EA%B7%9C%EC%A0%9C_%EB%B0%8F_%EA%B3%B5%EC%A0%95%EA%B1%B0%EB%9E%98%EC%97%90_%EA%B4%80%ED%95%9C_%EB%B2%95%EB%A5%A0">
+                ①독점규제 및 공정거래에 관한 법률은 1990년 1월 13일 전문개정된 법률 제4198호의 한국 경제법의 일종이다.
+            </small>
+            <small
+                cite="https://www.google.com/search?q=%EB%B9%84%EC%98%81%EB%A6%AC%EB%B2%95%EC%9D%B8&ei=AMY1YY2JFo6O-Aa0mKHQCw&oq=%EB%B9%84%EC%98%81%EB%A6%AC%EB%B2%95%EC%9D%B8&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsANKBAhBGABQAFgAYIXkCWgBcAJ4AIABAIgBAJIBAJgBAMgBCMABAQ&sclient=gws-wiz&ved=0ahUKEwiNiYyk7OnyAhUOB94KHTRMCLoQ4dUDCA4&uact=5">
+                ②'영리를 목적으로 하지 않는' 이란 학술 종교 자선 기예 사교 등 영리 아닌 사업을 목적으로 하는 것을 말하며, 비영리 사업의 목적을 달성하는데 필요한 그 본질에 반하지 않는 정도의
+                영리행위는 할 수 있습니다.
+            </small>
+
+            <!-- 주요뉴스 -->
+
+            <hr>
+
+            <h3>KBS 주요뉴스</h3>
+            <ul>
+                <li>
+                    <a href="https://news.kbs.co.kr/news/view.do?ncd=5271107&ref=A">[단독] "강윤성, 제3의 여성도 노렸다"…'살인예비' 혐의 추가 검토</a>                
+                </li>
+                <li>
+                    <a href="https://news.kbs.co.kr/news/view.do?ncd=5271320&ref=A">신형 음주단속 감지기 투입 첫날…음주운전 실태는?</a>                
+                </li>
+                <li>
+                    <a href="https://news.kbs.co.kr/news/view.do?ncd=5270823&ref=A">10m 음주운전 '무죄' …"경찰이 음주운전 유도"</a>                
+                </li>
+            </ul>
+      
+             <!-- 랭킹뉴스 -->
+            <hr>
+
+            <h3>KBS 랭킹 뉴스</h3>
+
+            <ol>
+                <li>
+                    <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=056&aid=0011115073&rankingType=RANKING" target="_blank">KBS 단독 ‘독도’ 수중탐사…독도 앞바다 점령한 ‘바다딸 …
+                    </a>
+                </li>
+                <li>
+                    <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=056&aid=0011115075&rankingType=RANKING" target="_blank">서울 신규 확진자 464명…4단계 지역에서도 최대 3분의 …</a>
+                </li>
+                <li>
+                    <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=056&aid=0011114957&rankingType=RANKING" target="_blank">싱가포르, 한국 ‘코로나 카테고리 2’로 완화…자가격리 1 …</a>
+                </li>
+            </ol>
+
+            <!-- 분야별 주요뉴스 -->
+            <hr>
+
+            <h3>분야별 주요뉴스</h3>
+            <dl>
+                <dt>사회</dt>
+                <dd>
+                    <a href="https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=102&oid=056&aid=0011115120" target="_blank">동영상기사	
+                        전남 광양 한 중학교 코로나19 집단 감염</a>
+                </dd>
+                <dd>
+                    <a href="https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=102&oid=015&aid=0004600762" target="_blank">	
+                        靑, 광주·강원 학교폭력에 "사건 매우 엄중히 보고 있어"</a>
+                </dd>
+
+                <dt>경제</dt>
+                <dd>
+                    <a href="https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=102&oid=056&aid=0011115120" target="_blank">동영상기사	
+                        전남 광양 한 중학교 코로나19 집단 감염</a>
+                </dd>
+                <dd>
+                    <a href="https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=102&oid=015&aid=0004600762" target="_blank">	
+                        靑, 광주·강원 학교폭력에 "사건 매우 엄중히 보고 있어"</a>
+                </dd>
+                
+                <dt>연예</dt>
+                <dd>
+                    <a href="https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=102&oid=056&aid=0011115120" target="_blank">동영상기사	
+                        전남 광양 한 중학교 코로나19 집단 감염</a>
+                </dd>
+                <dd>
+                    <a href="https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=102&oid=015&aid=0004600762" target="_blank">	
+                        靑, 광주·강원 학교폭력에 "사건 매우 엄중히 보고 있어"</a>
+                </dd>
+            </dl>
+
+            <!-- 언론사별 가장 많이 본 뉴스 -->
+            <hr>
+
+            <h3>언론사별 가장 많이 본 뉴스</h3>
+            <table id="tbl_2">
+                <tr>
+                    <td>
+                        <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=214&aid=0001146434&rankingType=RANKING" 
+                        target="_blank">"집값의 10%만 내고 10년 거주"…'누구나집' 시범사업</a>
+                    </td>
+                    <td>
+                        <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=214&aid=0001146434&rankingType=RANKING"
+                        target="_blank">
+                            <img src="	https://mimgnews.pstatic.net/image/origin/214/2021/09/06/1146434.jpg?type=nf88_60"
+                            alt="뉴스이미지">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=214&aid=0001146434&rankingType=RANKING" 
+                        target="_blank">"집값의 10%만 내고 10년 거주"…'누구나집' 시범사업</a>
+                    </td>
+                    <td>
+                        <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=214&aid=0001146434&rankingType=RANKING"
+                        target="_blank">
+                            <img src="	https://mimgnews.pstatic.net/image/origin/214/2021/09/06/1146434.jpg?type=nf88_60"
+                            alt="뉴스이미지">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=214&aid=0001146434&rankingType=RANKING" 
+                        target="_blank">"집값의 10%만 내고 10년 거주"…'누구나집' 시범사업</a>
+                    </td>
+                    <td>
+                        <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=214&aid=0001146434&rankingType=RANKING"
+                        target="_blank">
+                            <img src="	https://mimgnews.pstatic.net/image/origin/214/2021/09/06/1146434.jpg?type=nf88_60"
+                            alt="뉴스이미지">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+      
 
         </main>
 
