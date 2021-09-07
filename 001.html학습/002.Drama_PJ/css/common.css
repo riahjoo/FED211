@@ -2,10 +2,10 @@
 /* 외부 CSS파일 상단에 문자셋 필수. */
 
 /* 
-        선택자 {
-            속성명:값;
-        }
-        */
+    선택자 {
+        속성명:값;
+    }
+    */
 
 /* 상단부분 */
 
@@ -32,8 +32,18 @@ div#top {
     /* 줄간격: 숫자는 글자크기기준 배수 */
     line-height: 2;
     /* 안쪽 여백 */
-    padding: 5px;
+    padding: 5px; 
 }
+
+/* 열크기 */
+.ic{/* 이미지열 */
+    width: 20%; 
+}
+.tc{/* 텍스트열 */
+    width:30%
+}
+
+
 
 /* 드라마제목 */
 .tbl a {
@@ -55,14 +65,19 @@ div#top {
 /* 메뉴 */
 .menu a,
 .menu {
-    color: hotpink;
+    color: rgb(187, 128, 128);;
 }
 
 /* 마우스오버시 가상요소 :hover*/
 
 .menu a:hover,
 .menu a.on {
-    color: yellowgreen;
+    color: rgb(166, 203, 214);
     text-decoration: overline;
     /* 윗줄 */
+}
+
+/* 드라마포스터 */
+.tbl img{
+    border-radius: 10px;/* 둥근테두리 */
 }
