@@ -32,7 +32,7 @@ div#top {
     /* 줄간격: 숫자는 글자크기기준 배수 */
     line-height: 2;
     /* 안쪽 여백 */
-    padding: 5px; 
+    padding: 5px;  
 }
 
 /* 열크기 */
