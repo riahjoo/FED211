@@ -42,7 +42,6 @@ margin: 값 값 값 값; -> 위 오른 아래 왼 (시계방향)
 : border-top, border-left, border-right, border-bottom
 
 
-
 *마진,패딩 공통 셋팅!
 margin: 값; -> 4방향
 margin: 값 값; -> 위아래 양쪽
@@ -75,3 +74,30 @@ padding: 값 값 값 값; -> 위 오른 아래 왼 (시계방향)
 -> 각 방향별 속성
 margin-top, margin-left, margin-right, margin-bottom
 padding-top, padding-left, padding-right, padding-bottom
+
+[ 배경속성 ]
+ 1.배경색 
+background-color: rgb(175, 250, 185);
+ 2.배경이미지 
+background-image: url(../images/bg_logo_a_01.png);
+ 3.배경반복여부 - repeat(반복,기본값),no-repeat(반복안함)
+repeat-x(x축반복), repeat-y(y축반복) 
+background-repeat: no-repeat;
+ 4.배경고정 
+
+ 5.배경위치
+ - 가로값 : 수치(px,%), left, center, right
+ - 세로값 : 수치(px,%), top, center, bottom
+ - 별도설정 속성
+ background-position-x
+ background-position-y
+
+background-position: center;
+
+ 6.배경크기 
+   - 가로크기 : 수치(px,%), auto(비율유지)
+   - 세로크기 : auto(비율유지), 수치(px,%), 
+   - cover : 비율에 맞춰서 화면채우기
+   - contain : 이미지를 화면에 맞게 채우기
+
+background-size: auto 200px; 
