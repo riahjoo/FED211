@@ -78,4 +78,4 @@ https://www.w3schools.com/cssref/playit.asp?filename=playcss_ol_list-style-type&
 
 
 [기능요소]
-35.button : 버튼모양의 요소
+40.button : 버튼모양의 요소
