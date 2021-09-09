@@ -22,22 +22,38 @@ body{
     
 }
 /* 2.메인영역 */
+/* 가상요소로 float해제 */
+.clb::after{
+    content:'';
+    display:block;
+    clear:both;
+}
+
 /* 캐릭터박스 */
 #cbx{
-    width:80%;
-    height:300px; 
+    width:90%;
+    /* height:300px;
+    자식요소 float때문에 
+    자식요소를 인식하지 못함. 
+    높이값이 없을 때 높이값이 안나옴. */
     outline: 15px dashed lime;
     margin:0 auto;/* 마영오 - 가로중앙정렬 */
 }
+
 /* 개별 캐릭터 박스 */
 .cat{
     width: 25%;/* 4등분 */
     /* height:100%; 높이값이 없으면 auto이고 내용만큼 늘어남!!*/
-    outline:10px dotted rgb(26, 40, 167); 
     float:left;
     /* 블록요소가 옆으로 흐르게함
     left값을 주면 나는 왼쪽. 다른요소는 오른쪽에
     올 수 있게 함 */
+    /* 안쪽 여백 */
+    padding: 5px;
+    /* 마진,패딩 포함하기 속성 */
+    box-sizing: border-box;
+    outline:10px dotted rgb(26, 40, 167); 
+
 }
 /* 캐릭터이미지 */
 .cat>img{
