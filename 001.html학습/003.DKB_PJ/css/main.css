@@ -106,4 +106,5 @@ body{
     padding:10px; 
     font:14px/2 '맑은 고딕','돋움', arial;
     /* font:스타일 두께 크기/줄간격 글자체(스두크/줄체) */
+    text-align: justify;
 }
