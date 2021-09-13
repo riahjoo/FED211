@@ -11,8 +11,31 @@
             border: 2px solid blue;
             text-align: center; font-size:24px;
             font-weight:bold;  line-height: 100px;
-            
+        }
+        #s1{
+            position:static;
+            /* 
+                [css의 포지션은 뭐지?]
+                - 위치를 배치하기 위한 효과적인 코딩법을
+                제공해주는 속성
+                [1.static 포지션]
+                - 설정하지 않아도 기본값
+                - 위치이동값(top,left,right,bottom)속성이 
+                적용되지 않는다.
+                - 위치이동을 하려면 margin을 사용
+                :마진으로 위치를 이동시키면 
+                아래 또는 옆에 있는 요소가 영향을 받는다.
+                [2.위치이동속성]
+                - 선택요소의 위치를 이동하기 위한 속성
+                - 포지션에 따라 다르게 적용된다!
+                - 종류: 4가지
+                    top,bottom,left,right
+                
 
+            */
+            top: 100px; left: 100px;
+            /* 마진으로 위치이동 */
+            margin-top: 100px; margin-left: 100px;
         }
 
 
