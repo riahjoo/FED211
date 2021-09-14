@@ -9,16 +9,79 @@
             /* 배경: 색이반고윙/크 */
             background: url(./images/bg.jpg) no-repeat fixed top/cover;
         }
+        body>*{
+            outline:5px dashed lime;
+        }
+        /* 로봇머리 */
+        #head{
+            width: 250px; height: 250px; 
+            margin:0 auto; margin-top: 100px;
+            background:url(./images/metal01.jpg) no-repeat center/cover;
+            position:relative; 
+        }
+        #eye1{
+            position:absolute; top:50px; left:50px;
+            /* 나의부모는? - #head  */
+            width: 50px;height: 50px;
+            background:url(./images/e1.jpg) no-repeat 0/100% 100%;
+        }
+        #eye2{
+            position:absolute; top:50px; right:50px;
+            /* 나의부모는? - #head */
+            width: 50px;height: 50px;
+            background:url(./images/e2.jpg) no-repeat 0/100% 100%;
+        }
+        #nose{
+            width: 50px;height: 70px;
+            background:url(./images/nose.jpg) no-repeat 0/100% 100%;
+            position:absolute; top:100px; left:calc(50% - 25px);;
+        }
+        #ear1{
+            left:-50px;
+        }
+        #ear2{
+            right:-50px;
+        }
+        .ear{
+            width: 50px;height: 70px; 
+            position:absolute; top:100px;
+            background:url(./images/metal02.jpg) no-repeat 0/100% 100%;
+        }
+        #mouth{
+            width: 100px; height: 50px;
+            background:url(./images/mouth.png) no-repeat 0/100% 100%;
+            position: absolute; bottom:10px; 
+            left:calc(50% - 50px);
+        }
+
+        /* 로봇몸통 */
+        #body{
+            position:relative;
+            width: 250px; height: 300px;
+            background: url(./images/metal01.jpg) no-repeat center/cover;
+            margin: 0 auto; margin-top:50px;
+        }
+
+        /* 목 */
+        #neck{
+            width: 50px; height: 50px;
+            position: absolute; 
+            background: url(./images/metal02.jpg) no-repeat 0/100% 100%;
+            top:-50px; left:calc(50% - 25px); /* 부모는? - #body */
+        }
+        
+
+
+
+
 
     </style>
-
-
 </head>
 <body>
 
     <!-- 로봇 머리 -->
     <div id="head">
-        
+
         <!-- 눈1 -->
         <div id="eye1"></div>
         <!-- 눈2 -->
@@ -26,16 +89,22 @@
         <!-- 코1 -->
         <div id="nose"></div>
         <!-- 귀1 -->
-        <div id="ear1"></div>
+        <div id="ear1" class="ear"></div>
         <!-- 귀2 -->
-        <div id="ear2"></div>
+        <div id="ear2" class="ear"></div>
         <!-- 입1 -->
         <div id="mouth"></div>
 
     </div>
 
-
-
+    <!-- 로봇 몸통 -->
+    <div id="body">
+        <div id="neck"></div>
+        <div id="arm1" class="part"></div>
+        <div id="arm2" class="part"></div>
+        <div id="leg1" class="part"></div>
+        <div id="leg2" class="part"></div>
+    </div>
 
     
 </body>
