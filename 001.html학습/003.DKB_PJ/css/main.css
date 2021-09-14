@@ -53,6 +53,17 @@ header.top{
     padding-top:20px; border-bottom:1px solid #ccc;
 
 }
+.ham{
+    position:absolute;
+    top:10px; right:10px;
+    width: 70px;height: 70px;
+    font-size:40px;
+    border:none; background-color:transparent;/* 배경없애기(투명) */
+    cursor:pointer;/* 손가락모양 */
+
+    display: none;/* 처음에 안보임. */
+}
+
 /* 로고 */
 h1.logo{
     margin: 0;padding: 0;
