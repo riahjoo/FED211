@@ -58,9 +58,9 @@ li{
 
 /* 1.상단영역 */
 header.top{
-    position: relative;/* 부모자격 - .gnb */
+    position: relative;/* 부모자격 - .gnb>ul>li::after */
     background-color: #fff;
-    padding-top:20px;
+    padding-top:20px; border-bottom:1px solid #ccc;
 
 }
 /* 로고 */
@@ -90,14 +90,51 @@ h1.logo img{
     display: block;/* 높이값 적용위해 */
     box-sizing: border-box; /* 보더,패딩 내부로 포함 */
 }
-/* 상위 메뉴에 마우스 오버시 밑줄 만들기 */
+/* 상위 메뉴에 마우스 오버시 보더로 밑줄 만들기 */
 .gnb>ul>li>a:hover{
     border-bottom:4px solid red;
 }
-
 .smenu{
-    display: none;
+    position:absolute; /* background:rgb(255, 255, 255); */
+    /* 서브메뉴 숨기기 */
+    height: 0; overflow: hidden; 
+    transition: height .4s ease-out;
+    /* 부모li가상요소 앱솔루트 보다 위로. */
+    z-index:1;
 }
+.smenu li{
+    float:none; /* float자체 해제 */
+}
+.smenu a{
+    color:black; text-decoration: none; 
+    font-size: 13px; line-height:30px;
+}
+/* 상위메뉴 마우스 오버시 서브메뉴 보이기*/
+.gnb>ul>li:first-child:hover .smenu{
+    height: 90px;
+}
+.gnb>ul>li:first-child:hover::after{
+    height: 100px; border-bottom:2px solid red;
+}
+.gnb>ul>li:nth-child(3):hover .smenu{
+    height: 120px;
+}
+.gnb>ul>li:nth-child(4):hover .smenu{
+    height: 60px;
+}
+/* JS없이 메뉴 전체 배경용 가상요소 만들기 */
+.gnb>ul>li::after{/* top값없이 젠틀하게 하려고 ::after를 사용함 */
+    content:'';
+    display: block;
+    position: absolute;/* 앱솔루트는 자동 block인데 명시적으로 display:block을 써준거임 */
+    left:0; /* 나의 부모는? .top */
+    width:100%; /* 부모요소를 꽉채움. */
+    height: 0; 
+    background-color: #fff;
+    margin-top:1px; /* 부모요소 .top의 하단 보더 보이게 하기위해 마진탑으로 이동. */
+    transition: height .4s ease-out;/* .smenu와 동일! */
+}
+
 
 /* 2.메인영역 */
 /* 가상요소로 float해제 */
