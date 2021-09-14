@@ -8,20 +8,12 @@ body {
     padding: 0;
     height: 100%;
     /* 보이는 화면 높이 값 채우기 */
+    overflow-x:hidden;/* 뷰포트 적용시 내용이 넘쳐서 x축 공간이
+    비어보일경우 이 코드 설정한다! */
 }
 
-body {
-    /* 배경 한번에 셋팅하기 */
-    /* background: 색 이미지 반복 고정 위치/크기;
-   background: 색이반고윙/크; */
-    background: 
-    url(../images/bg_logo_a_01.png) no-repeat fixed 10% 20%/10%,
-    url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
-    /* 배경이미지를 여러개 사용할 경우 먼저 쓴것이 위에온다. */
-}
 /* 스크롤 바 트랙 변경하기 */
 /* -webkit : 벤더사명(크롬,사파리) */
-
 /* 전체 스크롤바 크기 */
 .scbar::-webkit-scrollbar {
     width: 7px;
@@ -38,8 +30,6 @@ body {
     background-color: #ddd;
     border-radius: 5px;
 }
-
-
 
 /* 공통 초기화 */
 ul,ol{
@@ -75,12 +65,11 @@ h1.logo img{
 
 /* GNB메뉴 */
 .gnb{
-    width: 635px; 
+    max-width: 635px; 
+    /* 최대크기 635px을 유지하다가 화면이 635px보다 작아지면 width:auto적용 */
     margin: 0 auto; 
 }
-.gnb>ul{
-    
-}
+
 .gnb>ul>li{
     padding:0 17px;/* 양쪽을 동일하게 밀고 사이간격은 34px */
 }
@@ -110,17 +99,23 @@ h1.logo img{
     font-size: 13px; line-height:30px;
 }
 /* 상위메뉴 마우스 오버시 서브메뉴 보이기*/
-.gnb>ul>li:first-child:hover .smenu{
+.gnb>ul>li:first-child:hover .smenu{/* 서브메뉴 */
     height: 90px;
 }
-.gnb>ul>li:first-child:hover::after{
+.gnb>ul>li:first-child:hover::after{/* 가상요소배경 */
     height: 100px; border-bottom:2px solid red;
 }
 .gnb>ul>li:nth-child(3):hover .smenu{
-    height: 120px;
+    height: 120px; 
+}
+.gnb>ul>li:nth-child(3):hover::after{
+    height: 130px; border-bottom:2px solid red;
 }
 .gnb>ul>li:nth-child(4):hover .smenu{
     height: 60px;
+}
+.gnb>ul>li:nth-child(4):hover::after{
+    height: 70px; border-bottom:2px solid red;
 }
 /* JS없이 메뉴 전체 배경용 가상요소 만들기 */
 .gnb>ul>li::after{/* top값없이 젠틀하게 하려고 ::after를 사용함 */
@@ -134,9 +129,21 @@ h1.logo img{
     margin-top:1px; /* 부모요소 .top의 하단 보더 보이게 하기위해 마진탑으로 이동. */
     transition: height .4s ease-out;/* .smenu와 동일! */
 }
-
+/* 메인,하단 랩핑박스 */
+.wrap{
+    /* 배경 한번에 셋팅하기 */
+    /* background: 색 이미지 반복 고정 위치/크기;
+   background: 색이반고윙/크; */
+   background: 
+   url(../images/bg_logo_a_01.png) no-repeat fixed 10% 25%/10%,
+   url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
+   /* 배경이미지를 여러개 사용할 경우 먼저 쓴것이 위에온다. */
+}
 
 /* 2.메인영역 */
+.cont{
+    min-height:800px;/* 최소높이 700px유지 */ 
+}
 /* 가상요소로 float해제 */
 .clb::after {
     content: '';
@@ -147,17 +154,15 @@ h1.logo img{
 /* 캐릭터박스 */
 #cbx {
     width: 90%;
-    height:450px;
     /* height:300px;
     자식요소 float때문에 
     자식요소를 인식하지 못함. 
     높이값이 없을 때 높이값이 안나옴. */
     /* outline: 15px dashed lime; */
     margin: 0 auto;
-    /* 마영오 - 가로중앙정렬 */
-    margin-top: 50px;
-
-}
+    /* 마영오 - 가로중앙정렬, relative일때도 적용됨.*/
+    position: relative; top:400px;
+ }
 
 /* 개별 캐릭터 박스 */
 .cat {
@@ -175,13 +180,13 @@ h1.logo img{
     /* outline:10px dotted rgb(26, 40, 167);  */
 
     /* 트렌지션: 속시이지 */
-    transition: margin-top .8s ease-in-out;
+    transition: margin-top .6s ease-out;
 
 }
 
 /* 캐릭터개별박스(.cat)에 마우스 오버시 마진top올라가기 변경 */
 .cat:hover{
-    margin-top:-50px;
+    margin-top:-200px;
 }
 
 /* 캐릭터이미지 */
@@ -272,7 +277,7 @@ h1.logo img{
 
     */
     
-    transition: height .8s ease-out;
+    transition: height .6s ease-out;
 }
 
 
