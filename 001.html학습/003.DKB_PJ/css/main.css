@@ -1,6 +1,13 @@
 @charset "utf-8";
 /* 도깨비 메인 css - main.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Gothic&display=swap');
+/* 
+font-family: 'Nanum Brush Script', cursive;
+font-family: 'Nanum Gothic', sans-serif; 
+*/
+
+
 /* 초기화 셋팅 */
 html,
 body {
@@ -86,6 +93,7 @@ h1.logo img{
 }
 .gnb>ul>li>a{
     color:black; text-decoration: none; font-size: 13px;
+    font-family: 'Nanum Gothic', sans-serif; 
     line-height: 54px; height: 54px; 
     display: block;/* 높이값 적용위해 */
     box-sizing: border-box; /* 보더,패딩 내부로 포함 */
@@ -300,7 +308,7 @@ h1.logo img{
 
 /* 캐릭터 설명 타이틀 */
 .cd h3 {
-
+    font-family: 'Nanum Brush Script', cursive;
     padding:5px 10px 0px;
 
 }
@@ -308,7 +316,7 @@ h1.logo img{
 /* 캐릭터 설명 문단 */
 .cd p {
     padding: 10px;
-    font: 14px/2 '맑은 고딕', '돋움', arial;
+    font:normal 18px/2 'Nanum Brush Script', cursive;
     /* font:스타일 두께 크기/줄간격 글자체(스두크/줄체) */
     text-align: justify;
 }
