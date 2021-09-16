@@ -49,7 +49,8 @@
             */
 
             /* 애니메이션 세팅: 이시이지반방마 */
-            animation: logoAni 2s ease-in-out 1s forwards;
+            animation: logoAni 2s ease-in-out 1s forwards,
+                        logoAni2 1s ease-in-out 3s infinite alternate;
             /* 1초후에 2초간 처음과 마지막에 천천히 애니후 끝상태 유지(기본값은 1번만 실행) */
 
         }
@@ -65,6 +66,15 @@
             }
         }/* 키프레임 */
 
+        /* 추가키프레임 */
+        @keyframes logoAni2{
+            from{
+                transform:rotate(30deg);
+            } 
+            to/* 끝 설정 */{
+                transform:rotate(-30deg);
+            }
+        }
 
         /* 로봇머리 */
         #head {

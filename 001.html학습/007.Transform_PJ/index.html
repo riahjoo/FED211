@@ -79,15 +79,31 @@
             1. rotateY(각도deg) - Y축회전
             - deg는 각도의 단위(도:degree)
          */
+
+         /* 박스 안에 이미지를 돌려야 이벤트가 정상적으로 작동된다. */
          #trans1:hover img{
-             
+             transform: rotateY(180deg);
+             filter:grayscale(100%);/* 이미지 변경 필터(흑백) */
          }
         /* 
             2. rotateX(각도deg) - X축회전
          */
          #trans2:hover img{
-             
+             transform: rotateX(180deg);
+             filter:blur(2px);/* 이미지 변경 필터(블러-흐림효과) */
          }
+
+         
+          /* 
+            [ CSS 필터속성 ]
+            - 흑백, 흐림, 세피아, 명암, 채도 등 출력 이미지를
+            변경하고 할때 사용하는 속성
+            -> 소스 참고:
+            https://www.w3schools.com/cssref/playit.asp?filename=playcss_filter&preval=blur(5px)
+         */
+
+         
+
          /* 
             3. translateX(거리) - X축이동
             - 단위: px, %
@@ -97,7 +113,7 @@
             - 이동방향: + 는 오른쪽, - 는 왼쪽
           */
           #trans3:hover img{
-              
+              transform:translateX(-100%)
           }
           /* 
             4. translateY(거리) - Y축이동
@@ -108,7 +124,7 @@
             - 이동방향: + 는 아랫쪽, - 는 윗쪽
           */
           #trans4:hover img{
-              
+              transform: translateY(100px);
           }
            /* 
             5. translate(X축거리,Y축거리) - X,Y축이동
@@ -121,7 +137,7 @@
                         - 는 왼쪽/윗쪽
           */
           #trans5:hover img{
-              
+              transform: translate(-200%,100%);
           }
           /* 
             6. rotate(각도deg) - 원형회전
@@ -131,12 +147,14 @@
                 (변경가능: transform-origin)
            */
            #trans6:hover img{
-               
+               transform:rotate(5423deg);
+               transition-duration:10s;/* 트랜지션 시간변경하기 */
            }
            /* 회전축 변경하기 */
            #trans6 img{
-               
+               transform-origin: 25% 75%;
                /* 
+                  [트랜스폼 축변경 속성]
                   transform-origin: 가로값 세로값;
                   - 가로값: left, right, center, 몇px, 몇%
                   - 세로값: top, bottom, center, 몇px, 몇%
@@ -149,7 +167,7 @@
                 - 각도가 양수/음수에 따라 기울임 방향달라짐                
             */
             #trans7:hover img{
-                
+                transform: skewX(30deg);
             }
             /* 
                8. scale(배수)
@@ -158,11 +176,12 @@
                - 값이 0이면 사라짐
              */
              #trans8 img{
+                 transform: scale(.5);
                  
                  /* 0.5배 -> 축소 */
              }
              #trans8:hover img{
-                 
+                transform: scale(2);
                  /* 2배 -> 확대 */
              }
              /* 
@@ -170,7 +189,8 @@
                 transform: 속성1 속성2 속성3 .....;
               */
               #trans9:hover img{
-                  
+                  transform: scale(2) translate(-200%,-100%) rotateX(1400deg) skewX(50deg) rotate(5300deg);
+                  transition-duration: 20s;
               }
 
               /* 
@@ -208,27 +228,31 @@
                /* 1. 보거미 처음상태(돌아옴) */
                /* Y축 0도로 돌아옴 - 0.4초 기다림 */
                #trans10 img:last-child{
-                    
+                transform: rotateY(0deg);
+                transition:transform .4s ease-out .4s;
                }
                /* 2. 보거미 오버상태 */
                /* Y축 90도회전 - 회전후 안보임*/
                #trans10:hover img:last-child{
-                   
+                   transform: rotateY(90deg);
+                   transition:transform .4s ease-in;
                }
                /* 3. 유정이 처음상태(돌아옴) */
                /* 처음에 이미 Y축 90도 회전상태 - 안보임 */
                #trans10 img:first-child{
-                   
+                transform: rotateY(90deg) ;
+                transition:transform .4s ease-in;
                 }
                /* 4. 유정이 오버상태 */
                /* Y축 0도로 회전 
                - 보거미 0.4초 돌동안 기다렸가 0.4초돌기 */
                #trans10:hover img:first-child{
-                   
-                }
-
+                transform: rotateY(0deg);
+                transition:transform .4s ease-out .4s ;
+                }   
                 /* 
                     [ 트랜지션 이징(easing) 가속도 ]
+                    - transition-timing-function
                     - 설정에 따라 빠르기를 조정함
                     1. ease : 기본값
                         - 애니메이션 전후에 약간 느려짐
@@ -241,9 +265,16 @@
                         (ease보다 가속도가 강하다)
                     5. linear
                         - 일정한 속도
+
+                        (1~5 예시)
+                    https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_transition-timing-function2
+
                     6. cubic-bezier : 자유로운 가속도
                         - 설정은 브라우저에서 가속도
                         곡선을 변경하여 수치를 생성한다
+                        생성된 코드를 복사하여 사용한다!
+                            (6번 예시)
+                    https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_transition-timing-function3
                  */
 
     </style>
