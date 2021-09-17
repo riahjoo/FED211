@@ -1,15 +1,14 @@
 @charset "utf-8";
 /* CGV PJ 메인 CSS - main.css */
 
-/* 외부css파일 합치기 (머징:merging)*/
+/* 외부CSS파일 합치기(머징:merging) */
 @import url(reset.css);
 @import url(core.css);
 
-
-/* 외부파일 합치는 @import는 하나의 css외부파일에서
-다른 외부 css파일을 하나의 문서로 합치는 기능을 한다.
-html에서 link방식의 요청을 최소화 할 수 있어서 랜더링 효율성을
-높여준다. */
+/* 외부파일 합치는 @import는 하나의 CSS외부파일
+에서 다른 외부CSS파일을 하나의 문서로 합치는 기능을
+한다. html에서 link방식의 요청을 최소화 할 수 있어서
+랜더링 효율성을 높여준다! */
 
 body {
     background-color: #000;
@@ -20,25 +19,75 @@ body {
 .part {
     width: 1200px;
     margin: 0 auto;
+    /* 가로중앙 */
     outline: 3px dotted yellow;
 }
 
-/*  1.상단영역  */
+/* 1. 상단영역 */
 #top {
     height: 80px;
-
+    background: url(../images/curtain.jpg) repeat-x;
 }
 
-/*  2.메인영역  */
+/* 1-1. 페이지 타이틀 */
+.tit {
+    color: aquamarine;
+    font-size: 40px;
+    line-height: 80px;
+    text-align: center;
+    font-family: 'Jua', sans-serif;
 
+    /* 그림자를 이용한 Glow효과 */
+    text-shadow: 0 0 10px aquamarine;
+}
+
+/* 2. 메인영역 */
 #cont {
+    position: relative;
+    /* 부모자격 */
     height: 788px;
-    background: url(../images/bg.jpg) no-repeat ;
+    background: url(../images/bg.jpg) no-repeat;
 }
 
+/* 2-1.스크린박스 */
+#screen {
+    position: absolute;
+    top: 135px;
+    left: 257px;
+    /* 나의 부모는? #cont */
+    width: 701px;
+    height: 398px;
+    background-color: #000;
 
+}
 
-/*  3.하단영역  */
+/* 스크린 아이프레임 */
+#screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 2-2. 예고편선택메뉴 */
+.mlist {
+    position: absolute;
+    bottom: 56px;
+    left: 252px;
+}
+
+/* li디자인 */
+.mlist ul>li {
+    margin: 0 10px;
+    /* li 바깥쪽 양쪽밀기 */
+}
+
+/* 포스터 이미지 */
+.mlist img {
+    width: 99px;
+    height: 140px;
+}
+
+/* 3. 하단영역 */
 #info {
     height: 100px;
 }
