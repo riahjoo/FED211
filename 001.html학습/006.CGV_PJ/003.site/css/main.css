@@ -23,12 +23,13 @@ body {
     outline: 3px dotted yellow;
 }
 
-/* 1. 상단영역 */
+/**************** 1. 상단영역 *******************/
 #top {
+    position: relative;
+    /* 부모자격! - .gnb */
     height: 80px;
     background: url(../images/curtain.jpg) repeat-x;
-    position:relative; /* 부모자격! - .gnb */
-    z-index:999; 
+    z-index: 999;
 }
 
 /* 1-1. 페이지 타이틀 */
@@ -45,21 +46,107 @@ body {
 
 /* 1-2. 전체메뉴(GNB) */
 .gnb{
-    position: absolute;right:15px; bottom:15px;/* 나의 부모는? - #top */
-    outline: 2px solid rgb(13, 126, 56);
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    /* 나의부모는? #top */
 }
-
-/* GNB li 리스트 */
-.gnb li{
-    padding:0 10px;
+/* GNB li리스트 */
+.gnb li {
+    position: relative;
+    /* 부모자격 - .smenu */
+    padding: 0 10px;
     font-family: 'Jua', sans-serif;
     /* 글자크기 미지정시 16px임! */
+    font-size:20px;
+}
+
+/* GNB 서브메뉴 */
+.smenu{
+    position: absolute;
+    /* left와 transform을 이용한 가로 중앙정렬법! */
+    left: 50%;/* 부모가로크기의 절반만큼 밀어준다! */
+    margin-top: 5px;
+    transform: translateX(-50%);
+    /* 자기자신크기의 절반을 왼쪽으로 이동! */
+    width: 150px;
+    /* 특정크기를 주지 않고 auto일 경우 부모크기로 한정됨!
+    따라서 특정크기를 줘야하는 케이스임! */
+    background: url(../images/bg_smenu.png) no-repeat center/cover;
+    box-shadow:0 0 5px #fff; 
+    padding:3px;
+    border-radius:5px;
+    display:none;/* 처음에 안보임 */
+}
+/* 상위메뉴 오버시 서브메뉴 보이기 */
+.gnb>ul>li:hover .smenu{
+    display:block;
+}
+
+/* 가상요소로 삼각형모양 만들기 */
+.smenu::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    /* 부모는? .smenu */
+    transform: translateX(-50%);
+
+    /* 삼각형 만들기 */
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #353535;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    /* 역삼각형은 border-bottom대신 border-top을 사용! */
+    /* transparent는 투명색 - 다른표현은 rgba(0,0,0,0) */
+    
+}
+
+.smenu ol{
+    border:1px solid #ccc; 
+    padding:5px;
+    
+}
+.smenu li{
+    float: none;/* float해제 */
+    font-size: 16px; line-height: 2;
+}
+.smenu a:hover{
+    color:red;
+}
+/* 서브메뉴 a요소 오버시 가상요소로 손가락모양 */
+.smenu a:hover::after{
+    content: '☞';/* 손가락모양 */
+    float:right;
+    font-weight:bold;
 }
 
 
 
+/* 탑 보더 클래스 */
+.tbar{
+    border-top:1px solid #ccc;
+}
 
-/* 2. 메인영역 */
+/* 영사기 박스 */
+#cam{
+    position:absolute; bottom: -19px; right:-50px;/* 부모는? .gnb */
+}
+/* 영사기 이미지 */
+#cam img{
+    width: 50px;
+}
+/* 빔박스 */
+.bim{
+    position:absolute; top:0; left:0;
+    height: 71px; background: url(../images/bim.png) no-repeat;
+    background-position: right center;
+    box-sizing: auto 100%;
+}
+
+/***************** 2. 메인영역 ***************/
 #cont {
     position: relative;
     /* 부모자격 */
@@ -92,8 +179,8 @@ body {
     bottom: 56px;
     left: 252px;
     overflow: hidden;
-    /* 넘치는 자식요소 숨기기 -> .movtxt요소의 부모 역할에 줘야 적용된다.*/
-
+    /* 넘치는 자식요소 숨기기
+    -> .movtxt요소의 부모에 줘야 적용된다! */
 }
 
 /* li디자인 */
@@ -107,36 +194,48 @@ body {
     width: 99px;
     height: 140px;
 }
+
 /* 영화정보박스 */
 .movtxt{
-    position:absolute; 
-    top:100%;/* 아래쪽에 나가있음!(부모 사이즈에 대비해서) */
-    /* 나의 부모는? - .mlist */
-    /* left값은 셋팅하지 않으므로 젠틀하다. 그래서 모두 li안에 그대로 있음 */
+    position: absolute;
+    top: 100%;/* 아래쪽에 나가있음! */
+    /* 나의 부모는? .mlist */
+    /* left값은 셋팅하지 않으므로 젠틀하다! 
+    그래서 모두 li안에 그대로 있음! */
+
+    width: 99px;
+    height: 140px;
+    background-color: rgba(0, 0, 0, 0.7);
+
     /* 글자셋팅 */
     font-family: 'Cute Font', cursive;
-    font-size:14px;
+    font-size: 14px;
     line-height: 25px;
-    color:#fff;
-    text-align:center;
-    width: 99px;height: 140px; background-color: rgba(0, 0, 0, 0.7);
-    /* 트랜지션:속시이지 */
-    transition:top .4s ease-out;
+    color: #fff;
+    text-align: center;
+
+    /* 트랜지션: 속시이지 */
+    transition: top .4s ease-out;
 }
+
 /* 영화정보 li */
 .movtxt li{
-    float:none; /* float해제 */
+    float: none;
+    /* float해제 */
 }
-/* 첫번째 li는 영화제목 */
+
+/* 첫번째 li는 영화제목임 */
 .movtxt li:first-child{
-    color:aqua; 
-    font-size: 17px; letter-spacing:-1px;
-    margin-top:30px;/* 상단밀기-아래li도 같이밀림 */
+    color: aqua;
+    font-size: 17px;
+    letter-spacing: -1px;/* 자간 */
+    margin-top: 30px;
+    /* 상단밀기-아래li도 같이밀림! */
 }
 
 /* 포스터 리스트에 마우스 오버시 영화정보 올라오기 */
 .mlist>ul>li:hover .movtxt{
-    top:0;
+    top: 0;
 }
 
 /* 3. 하단영역 */
