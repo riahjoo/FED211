@@ -20,7 +20,7 @@ body {
     width: 1200px;
     margin: 0 auto;
     /* 가로중앙 */
-    outline: 3px dotted yellow;
+    /* outline: 3px dotted yellow; */
 }
 
 /**************** 1. 상단영역 *******************/
@@ -42,20 +42,36 @@ body {
 
     /* 그림자를 이용한 Glow효과 */
     text-shadow: 0 0 10px aquamarine;
+    animation:titAni .8s ease-in-out infinite alternate;
+}
+/* 타이틀 글로우 효과 애니메이션 키프레임 */
+@keyframes titAni{
+
+    to{
+        text-shadow:0 0 5px aquamarine;
+    }
+    
 }
 
 /* 1-2. 전체메뉴(GNB) */
 .gnb{
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     right: 15px;
     /* 나의부모는? #top */
+}
+
+/* GNB ul리스트 박스 */
+.glist{
+    position:relative; z-index:1; /* 다음  형제 요소인 #cam 앱솔 박스보다 위/!
+    -> 마우스 오버가 안되니까~!*/
 }
 /* GNB li리스트 */
 .gnb li {
     position: relative;
     /* 부모자격 - .smenu */
     padding: 0 10px;
+    padding-bottom: 5px; /* 하위메뉴 마진탑부분과 겹치게함 */
     font-family: 'Jua', sans-serif;
     /* 글자크기 미지정시 16px임! */
     font-size:20px;
@@ -132,19 +148,64 @@ body {
 
 /* 영사기 박스 */
 #cam{
-    position:absolute; bottom: -19px; right:-50px;/* 부모는? .gnb */
+    position:absolute;
+    bottom: -18px; right:-50px;/* 부모는? .gnb */
 }
 /* 영사기 이미지 */
 #cam img{
-    width: 50px;
+    width: 50px; 
+    position:relative;/* z-index적용위해 */
+    z-index:1;/* 빔박스 보다 위 */
+    /* 트랜스폼 회전 */
+    transform: rotate(20deg);
+    transition: transform .5s;
 }
+/* .gnb에 마우스 오버시 회전원상복귀 */
+.gnb:hover #cam img{
+    transform:rotate(0deg);
+    transition-delay:0;/* 지연없이 바로 실행 */
+
+}
+
 /* 빔박스 */
 .bim{
-    position:absolute; top:0; left:0;
-    height: 71px; background: url(../images/bim.png) no-repeat;
+    position:absolute; top: -18px; right:9px;
+    width: 0px;/* width:200px로 트랜지션 변경할것. */
+     height: 71px; background: url(../images/bim.png) no-repeat;
     background-position: right center;
     box-sizing: auto 100%;
+
+    transition:width .3s linear;
+    /* linear : 등속도 */
+    /* 애니메이션 : 이시이지반방마 */
+    animation: bimAni .06s linear infinite alternate;
+
 }
+/* 빔이 너울너울 거리도록 애니메이션 키프레임 */
+@keyframes bimAni{
+    from{
+        opacity: .9;
+    }
+    top{
+        opacity: .4;
+    }
+
+}/* 키프레임 */
+/* opacity 속성
+   - 투명도를 주는 속성
+   - 0 완전 투명, 1은 보임, 0.1~0.9 중간 투명도 
+*/
+
+
+
+/* .gnb에 마우스 오버시 빔등장. */
+.gnb:hover .bim{
+    width: 200px; transition-delay: .5s;
+}
+
+
+
+
 
 /***************** 2. 메인영역 ***************/
 #cont {
@@ -238,7 +299,27 @@ body {
     top: 0;
 }
 
-/* 3. 하단영역 */
+/************** 3. 하단영역 ***********/
 #info {
     height: 100px;
 }
+/* 3-1.회사정보박스 */
+#info address{
+    color: #fff;
+    font-style: normal;/* 이탤릭해제 */
+    font-family: 'Cute Font', cursive;
+    font-size: 18px;
+    line-height: 20px;
+
+    /* 안쪽여백 */
+    padding-top: 20px;
+    padding-left: 20px;
+}
+/* 하단로고 이미지 */
+#info img{
+    float: left;
+    /* 이미지는 왼쪽에 글자는 오른쪽으로 흐르게 */
+    margin-right: 20px;/* 오른쪽여백 */
+}
+
+
