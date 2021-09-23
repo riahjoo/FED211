@@ -312,6 +312,65 @@
 
 
 
+
+        ///////////////////////////////////////////
+        /* 
+            함수명 : circle
+            기능 : 선택요소 중앙으로 보내기
+        */
+       /////////////////////////////////////////////
+
+       function circle(num){//num 순번전달 변수
+
+            // 1. 함수 호출확인 및 전달값 확인
+            console.log(num+"나야나!")
+            // 2. 대상선정 : .circle
+            var cc=document.querySelectorAll(".circle");
+            // 3. 변경내용 : 트랜지션으로 화면중앙으로 이동하기
+            console.log("개수:"+cc.length); 
+            // 트랜지션
+            cc.item(num).style.transition="1s ease-out";
+            // 화면중앙이동
+            cc.item(num).style.top="50%";
+            cc.item(num).style.right="50%";
+            cc.item(num).style.transform="translate(50%,-50%)";
+
+
+       }//////////circle 함수//////////
+
+
+
+
+        ///////////////////////////////////////////
+        /* 
+            함수명 : rect
+            기능 : 오른쪽 상단으로 이동하여 사각형으로 전체 채우기
+        */
+        /////////////////////////////////////////////
+    
+        function rect(){
+
+            //1. 함수호출 확인
+            console.log("사각사각");
+            //2. 대상선정: #rect
+            var rt=document.querySelector("#rect");
+            //3. 변경내용: top, 트랜지션, width, height 
+            rt.style.top="0";
+            rt.style.borderRadius="0";
+            rt.style.width="100%";
+            rt.style.height="100%";
+            rt.style.transition="3s 1s,top 1s 0s";
+            // 트랜지션 top값만 1초, 나머지는 1초후 3초간 변경
+
+            //4. 추가 변경 : 글자넣기
+            rt.innerText="축하합니다~!!!";
+
+
+
+        }
+        //////////////////rect 함수////////////
+
+
     </script>
     <style>
         p.pbox{
@@ -322,6 +381,31 @@
             margin:0; padding:0;
         }
 
+        .circle, #rect{
+            position:absolute; top:0; right:0;
+            width: 200px; height: 200px; border-radius:50%;
+            background-size:cover; background-repeat:no-repeat;
+        }
+
+        .circle:first-of-type{
+            background-image: url(./images/01.png);
+        }
+
+        .circle:nth-of-type(2){
+            background-image: url(./images/02.png);
+        }
+
+        .circle:nth-of-type(3){
+            background-image: url(./images/03.png);
+        }
+
+        #rect{
+            background-image: url(./images/04.png);
+            top: 40%; 
+            font-size: 40px; text-align: center; color:red;
+            line-height: 200px; 
+            white-space: nowrap;/* 줄바꿈 방지 */
+        }
 
     </style>
 </head>
