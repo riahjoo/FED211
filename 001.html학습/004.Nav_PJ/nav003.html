@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>유형1.가로네비 서브별 드롭다운 세로형</title>
+    <title>유형3. 가로네비 서브 전체 드롭다운 전체창</title>
     <style>
         /* ul,ol 초기화셋팅 */
         ul,ol{
@@ -21,6 +21,24 @@
         /* GNB메뉴 */
         .gnb{
             background-color: #a76a88;
+            position: relative;/* 부모자격 - .gnb::before */
+
+        }
+        /* 유형변경2: GNB가상요소로 전체 서브창 배경 만들기 */
+        .gnb::before{
+            content: '';
+            display: block;
+            position:absolute;/* 겹치기 위해 */
+            top:50px; /* 부모는? - .gnb */
+            width: 100%; 
+            height: 0;  /* 오버시 220px로 변경 */
+            background-color: rgb(148, 148, 241);/* .smenu의 배경색과 동일 */
+            /* 트렌지션 : 속시이징 -> .smenu와 동일 */
+            transition: height .4s ease-out;
+        }
+        /* .gnb에 오버시 가상요소 높이값 변경하기 */
+        .gnb:hover::before{
+            height:220px; 
         }
         .gnb>ul{
             width:800px; margin: 0 auto;
@@ -55,20 +73,17 @@
             position: absolute; 
             background-color:rgb(148, 148, 241);
             overflow: hidden; height:0; width:200px;
-            
 
             /* 트렌지션 : 속시이징*/
             transition: height .4s ease-out;
 
         }
-        /* 상위메뉴 li에 마우스 오버시 서브메뉴 보이기*/
-        .gnb>ul>li:nth-child(2):hover .smenu{
+        
+        /* 유형변경1: .gnb에 오버시 전체 서브 한꺼번에 보이기 */
+        .gnb:hover .smenu{
             height:200px; 
         }
-        .gnb>ul>li:nth-child(3):hover .smenu{
-            height:100px; 
-        }
-
+        
         /* 상위 메뉴 오버시 하위메뉴 a글자색, 배경색 */
         .smenu a:hover{
             color:rgb(100, 22, 68);
@@ -81,7 +96,7 @@
 </head>
 <body>
 
-    <h1>유형1.가로네비 서브별 드롭다운 세로형</h1>
+    <h1>유형3. 가로네비 서브 전체 드롭다운 전체창</h1>
    
 
     <nav class="gnb">
