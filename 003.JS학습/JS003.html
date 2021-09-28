@@ -191,6 +191,205 @@
 
         
         */
+        /*//////////////////////////////////////////////
+            함수명: local
+            기능 : 지역명을 입력하면 지역국번을 안내한다.
+        */ /////////////////////////////////////////////
+
+        function local() {
+
+            // 1. 함수 호출여부 확인
+            console.log("국번안내서비스!");
+
+            // 2. 읽어올 대상 : input#local
+            var tg = document.querySelector("#local");
+
+            // 3. 입력값 읽어오기
+            var txt = tg.value;
+            // value - input요소의 값을 읽어오는 속성.
+            // <input type="text" value="출력값">
+            // value는 input에 원래 있는 속성.
+
+            console.log("입력된 지역명:" + txt);
+
+            // 4. 지역명을 switch case문으로 분류하여 메시지 넣기
+
+            // 메시지 변수
+            var msg; //선언만, 할당은 제어문에서
+
+            switch (txt) {
+                case "서울":
+                    msg = "02";
+                    break;
+                case "경기":
+                    msg = "031";
+                    break;
+                case "인천":
+                    msg = "032";
+                    break;
+                case "부산":
+                    msg = "051";
+                    break;
+                case "대구":
+                    msg = "053";
+                    break;
+                case "광주":
+                    msg = "062";
+                    break;
+                case "전북":
+                    msg = "063";
+                    break;
+                case "전남":
+                    msg = "061";
+                    break;
+                case "경북":
+                    msg = "054";
+                    break;
+                case "경남":
+                    msg = "055";
+                    break;
+                case "세종":
+                    msg = "044";
+                    break;
+                case "울산":
+                    msg = "052";
+                    break;
+                case "대전":
+                    msg = "042";
+                    break;
+                case "강원":
+                    msg = "033";
+                    break;
+                case "충북":
+                    msg = "043";
+                    break;
+                case "충남":
+                    msg = "041";
+                    break;
+                case "제주":
+                    msg = "064";
+                    break;
+                default:
+                    msg = "esc";
+            } /////// switch case /////////
+            //5. 메시지 만들기
+            //msg변수에 최종 출력내용을 다시 담아서 변경함
+            if (msg === "esc") {
+
+                msg = "등록되지 않는 지역입니다."
+
+            } /////if/////
+            else {
+                msg = txt + "의 지역번호는 " + msg + "입니다.";
+            }
+
+            //메시지 확인
+            console.log("메시지:" + msg);
+
+            // 6. 메시지 화면출력
+            // 출력대상 : #info
+            var info = document.querySelector("#info");
+            info.innerText = msg;
+
+
+
+
+        } //////////local 함수//////////
+
+        /* 
+            [ switch case문 ]
+            - 단일 조건을 분류하여 실행문을 만들어 줄때 사용하는 제어구문
+            - 문장구조
+            
+            switch(변수){
+                case 경우1: 실행코드; break;
+                case 경우2: 실행코드; break;
+                case 경우3: 실행코드; break;
+                ...
+                default: 실행코드;
+            }
+
+            (작동원리)
+            1. 변수값에 해당하는 경우 그 값에 들어가 코드를 실행함
+            2. 각 case 끝에 break 키워드를 반드시 써야함
+            - 이것을 안쓰면 다른 케이스에 또 들어가는 경우가 생김
+            -> break 키워드를 만나면 제어문을 빠져나간다.
+            3. default는 if문의 else와 비슷하여 해당 케이스가 없는 경우에
+            실행된다.(default도 else처럼 필요시에만 쓴다. 필수아님)
+            - default에는 break문을 쓰지 않는다.
+        */
+
+        /* ////////////////////////////////////////
+            함수명 : gugu
+            기능 : 선택박스에서 선택된 구구단을 출력함
+            연결이벤트 : change
+            - 선택박스(select)가 변경될때 발생하는 이벤트
+        */////////////////////////////////////////
+
+        function gugu(U){//U - 선택박스 자신 전달변수
+            // 옵션 값 변수
+            var opt = U.value;
+            // value는 선택된 option의 value값.
+
+            //1.호출 및 전달 값 확인
+            console.log("구구단!"+opt);
+
+            //2.대상선정
+            //출력대상 : div.gugu
+            var tg = document.querySelector(".gugu");
+
+            //3.구구단 만들기
+            var cd=""; //빈문자로 초기할당!(아래에서 +=하려고)
+            cd +="<h2>"+opt+"단</h2>";
+
+            ////////// for문 ////////
+            for(var i=1;i<=9;i++){
+
+                // for문 전달변수확인
+                //console.log("i는?"+i);
+                // 중복실행코드 //
+                cd +=opt+"×"+i+"="+(opt*i)+"<br>";
+
+            }//////for문/////////
+         
+            //문자열 확인
+            console.log(cd);
+
+            // 4.출력하기
+            tg.innerHTML=cd;
+
+
+
+
+        }////////////gugu 함수////////////////////
+        //////////////////////////////////////////
+
+        /* 
+            [ for문 ]
+            - 어떤 실행문을 순서대로 여러번 반복 실행할 경우
+            사용하는 제어문
+            - 구문구조
+
+            for(시;한;증){실행코드}
+            - 시 -> 시작값(변수선언과 함께 숫자를 할당)
+            - 한 -> 한계값(숫자를 조건문으로 사용)
+            - 증 -> 증감(1씩증가 ++ / 1씩감소 --)
+            
+            [ for문의 진행순서 ]
+            1. 먼저 시작값을 변수에 선언 후 할당하여 시작함
+            2. 중앙에 있는 한계값 조건에 맞는지 검사함
+            3. 맞으면(true이면) for문의 중괄호{} 안의 코드실행
+            4. 중괄호{} 안의 코드 실행 후 세번째 증감으로 올라감
+            ++ / -- 로 1씩 증감함
+            5. 중앙에 있는 한계값 조건에 맞는지 검사함
+            6. 조건에 맞는 동안 중괄호{}안의 코드를 반복실행함.
+            7. 중앙의 한계값 조건에 맞지 않으면 (false이면) for문을
+            빠져나옴.
+
+        
+        */
+
+
     </script>
     <style>
         /* 칭찬스티커 */
@@ -215,6 +414,18 @@
             height: 0;
             overflow: hidden;
         }
+
+        /* 구구단 출력박스 */
+        .gugu{
+            width: 300px; height: 300px;
+            overflow-y: scroll; /* y축 스크롤 */
+            border: 2px dashed blue;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+
+
     </style>
 
 </head>
@@ -274,6 +485,74 @@
         -> 왜? 입력창에 대한 설명으로 리더기가 이것을 읽어줌.
         (for 속성으로 입력창과 연결됨.)
      -->
+    
+    <hr>
+
+    <!-- switch case문 -->
+    <h2>switch case문 연습</h2>
+    <h3 id="info">국번안내</h3>
+    <label for="local">지역명 입력:</label>
+    <input type="text" id="local" placeholder="지역명에 '도'를 빼고 쓰세요." onkeypress="if(event.keyCode===13)local()">
+    <button class="sbtn" onclick="local()">국번문의</button>
+
+    <hr>
+    
+    <!-- for문 연습 -->
+    <h2>for문 연습</h2>
+     <h3>구구단 출력하기</h3>
+     <!-- onchange 이벤트 속성 : 선택박스 옵션이 변경될때 발생 -->
+     <select name="sel" id="sel" onchange="gugu(this)">
+        <!-- this 키워드로 선택박스의 선택변경을 알 수 있다. -->
+        <option value="1">구구단을 선택하세요!</option>
+        <option value="2">2단</option>
+        <option value="3">3단</option>
+        <option value="4">4단</option>
+        <option value="5">5단</option>
+        <option value="6">6단</option>
+        <option value="7">7단</option>
+        <option value="8">8단</option>
+        <option value="9">9단</option>
+        <option value="10">10단</option>
+        <option value="11">11단</option>
+        <option value="12">12단</option>
+        <option value="13">13단</option>
+        <option value="14">14단</option>
+        <option value="15">15단</option>
+        <option value="16">16단</option>
+        <option value="17">17단</option>
+        <option value="18">18단</option>
+        <option value="19">19단</option>
+        <option value="20">20단</option>
+     </select>
+
+     <!-- 구구단 출력박스 -->
+     <div class="gugu"></div>
+
+
+
+
+     <!-- 
+        select 요소
+        - 어떤 제시된 값을 드롭다운 메뉴에서 선택할 수 있는 입력요소
+        - name 속성 : 백엔드 코딩에서 값을 읽기 위한 구분이름 속성
+                    (name은 값은 id값과 같아도 무관)
+        - 하위 필수요소 -> option요소
+            -> 선택옵션을 셋팅하는 요소
+            -> 데이터로 값을 넣고 이 값을 선택했을때의 코드를 넣는다.
+            value  속성은 이 구분코드에 해당함.
+            : 만약 value를 안쓰면 데이터를 읽어감
+      -->
+
+     <!-- 
+        젠코딩 약어 : 
+        option[value=$]{$단}*20 
+        대괄호[] - 속성
+        중괄호{} - 데이터
+        $ - 순번(1부터)
+        *숫자 - 다수개 만들때
+
+    
+    -->
 
 
 
