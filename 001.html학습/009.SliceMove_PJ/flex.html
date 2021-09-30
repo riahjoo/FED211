@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex 레이아웃 연습</title>
+  <style>
+
+    html,body{
+      margin: 0;padding: 0; 
+      height: 100%; /* 보이는 화면 채우기 - 자식요소 height값 %의 기준이 된다. 꼭해야함 */
+    }
+    ul,ol{
+      margin: 0;padding:0; list-style: none;
+      /* 3무 */
+    }
+    /* 전체부모 */
+    #wrap{
+      height: 100%;
+      /* 화면채우기 */
+    }
+
+
+    /* ul 파티션 부모박스 */
+    #wrap>ul{
+      height: 100%;/* 화면채우기 */
+      display:flex;
+      flex-direction:row; /* 기본값 */
+      /* 
+         flex-direction 속성 : 진행방향과 순서를 정함
+         1) row : 좌->우(기본값)
+         2) row-reverse : 우->좌
+         3) column : 위->아래
+         4) column-reverse : 아래->위
+      */
+
+      /* 
+          [ flex 란? ] flexible(유연한- 에서 나온말)
+          - 가변적인 자식요소를 컨트롤 하기 위해 CSS3에서 새롭게
+          선보인 display 기술
+          - 자식요소를 같은 비율 혹은 다른 비율로 분할이 쉽다.
+          - 자식요소의 순서를 일괄적으로 변경할 수 있다.
+          - 무엇보다도 블록요소를 옆으로 흐르게 하는데 탁월하다.
+
+          [ 세팅법 ]
+          - 옆으로 흐르게 할 요소의 부모요소에 display:flex 로 설정.
+          - 자식요소에 flex:1 로 설정하면 등분할 된다.
+
+      */
+    }
+
+    /* li공통 */
+    #wrap>ul>li{
+      flex:1; 
+      /* 
+        플렉스 자식요소에 주는 속성 
+        1) flex : 한번에 아래 2,3,4 속성 순으로 셋팅
+            flex:1 숫자하나만 쓰면 flex:1 1 0 와 동일
+        2) flex-grow : 1 | 0; 커질래? 1:응,0:아니
+        - 부모박스 크기가 커질때 같이 커질지 여부
+        3) flex-shirink : 1 | 0; 작아질래? 1:응,0:아니
+        - 부모박스 크기가 작아질때 같이 작아질지 여부
+        4) flex-basis : 설정값(px,%,em,rem,vw 등)   
+        - width 가로크기를 설정하는 속성(0은 속성값 없다는 뜻)
+      */
+      
+    }
+
+    /* 각 파티션 li */
+    #wrap>ul>li:nth-child(1){
+      background:url(./images/m01_bg.jpg);
+    }
+    #wrap>ul>li:nth-child(2){
+      background:url(./images/m02_bg.jpg);
+    }
+    #wrap>ul>li:nth-child(3){
+      background:url(./images/m03_bg.jpg);
+    }
+    #wrap>ul>li:nth-child(4){
+      background:url(./images/m04_bg.jpg);
+    }
+    #wrap>ul>li:nth-child(5){
+      background:url(./images/m05_bg.jpg);
+    }
+
+    /* 중앙타이틀 공통 */
+    .tit{
+      position:absolute; left:50%; transform:translate(-50%);
+      /* 가로중앙이동 */
+      width: 500px; height: 100px; 
+      border: 5px double #fff;
+    }
+    /* 타이틀 하위 li 공통 */
+    .tit>li{
+      width: 50px; height: 50px; border: 3px solid #fff;
+      border-radius: 50%; background-color: #f00;
+      font:bold 14px/50px Verdana; text-align: center;
+      color:#fff;
+    }
+    /* 타이틀 1 */
+    .t1{
+      top:5%;
+      /* flex박스 설정 */
+      display:flex;
+
+      /* flex 옵션 */
+      justify-content: space-around;
+      /* 
+          justify-content 속성
+          - 수평정렬 속성 (justify 양쪽정렬의 뜻)
+          1) flex-start : 왼쪽 끝(기본값)
+          2) flex-end : 오른쪽 끝
+          3) center : 중앙
+          4) space-around
+          5)
+          6)
+
+
+
+      */
+
+
+    }
+  
+    
+
+
+
+  </style>
+</head>
+<body>
+
+   <!--  전체 부모박스  -->
+    <div id="wrap">
+        <!-- 파티션 박스 -->
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <!-- 타이틀박스1 -->
+        <ol class="tit t1">
+            <li>L</li>
+            <li>O</li>
+            <li>T</li>
+            <li>T</li>
+            <li>E</li>
+        </ol>
+    </div>
+  
+</body>
+</html>
