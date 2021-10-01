@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      /* 높이값 기준(보이는화면) */
+    }
+
+    body {
+      background: url(./images/space.jpg) no-repeat center/auto 200%;
+    }
+
+    /* 공통 */
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* 갤러리 부모박스 */
+    #wrap {
+      width: 520px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    /* 메인이미지 박스 */
+    #mbox {
+      display: inline-block;
+      /* block처럼 디자인 적용되며 inline처럼 한줄에 온다. */
+    }
+
+    #mbox img {
+      vertical-align: -79px;
+      /* 인라인요소간 세로 위치 정렬 */
+    }
+
+    /* 이미지 텍스트 출력박스 */
+    .imgtxt {
+      text-align: center;
+      color: red;
+      text-shadow: 1px 1px 1px #777;
+    }
+
+    /* 자동넘김 버튼박스 */
+    .abtn{
+      text-align:center;
+    }
+    .abtn button{
+      font-size: 1.5rem;
+    }
+    /* 처음에 멈춤버튼 안보이기 */
+    .end { 
+      display: none;
+    }
+
+
+
+
+  </style>
+  <script>
+    ///////////전역변수 구역/////////
+    //1. 이미지번호
+    var num = 1; // 첫번째 이미지 번호를 기억시킨다!
+    //2. 이미지 설명 배열변수
+    var txt = [
+
+      "노랑잉꼬가 먹이를 콕콕 찍어먹어요~^_^",
+      "분홍장미가 머리칼을 너풀너풀 날려요~",
+      "백조같은 거위가 뚱하니 바라보아요~",
+      "바이킹이 너무 어지러워 토가 나와요~",
+      "눈사람이 가짜인데 진짜같아 보여요",
+      "이 양은 보통양이 아니고 복제양 돌리에요~",
+      "잉꼬 한쌍이 영화를 찍어요~"
+    ];
+    //3.이미지 설명 글자색
+    var tcolor = [
+
+      "red", "orange", "yellow", "green", "blue", "navy", "purple"
+
+    ];
+
+
+
+    // 로드구역 : html 태그가 모두 그려진후 실행구역
+    // -> DOMContentLoaded(비교: load 이벤트)
+    // 이벤트연결 JS 내장함수 -> addEventLister(이벤트명,함수)
+    // 전체창은 window
+    window.addEventListener("DOMContentLoaded", function () {
+
+      /// 로딩확인
+      /* console.log("로딩완료"); */
+
+      /// 이벤트 속성을 JS코드구역에서 생성함
+      /// -> html과 JS코드를 분리한다.
+
+
+      /// 이벤트 대상선정
+      /// 이동버튼: .btn -> 2개
+      var btn = document.querySelectorAll(".btn");
+      /* console.log("버튼확인:" + btn.length);
+       */
+      /// 왼쪽 버튼 -> 첫번째 컬렉션[0] -> 컬렉션은 배열아님
+      //btn.item(0)
+      btn[0].onclick = function () {
+          //1. 호출확인
+          /*  console.log("나,왼쪽!"); */
+
+          //3. 이미지 전역변수 읽어와서 변경하기
+          num--;
+          if (num < 1) num = 7; /* 한계값 1미만이면 끝번호로 변경하기*/
+          /* 
+                  console.log("전역변수num:" + num) */
+          // 3. 변경함수 호출
+          chgImg();
+
+      };
+
+      /// 오른쪽 버튼 -> 두번째 컬렉션[1] 
+      //btn.item(1)
+      btn[1].onclick = function () {
+
+          //1. 호출확인
+          /*    console.log("나,오른쪽!"); */
+
+          //3. 이미지 전역변수 읽어와서 변경하기
+          num++;
+          if (num > 7) num = 1; /* 한계값 7초과이면 처음으로 변경하기 */
+          /*  console.log("전역변수num:" + num); */
+
+          // 3. 변경함수 호출
+          chgImg();
+
+      }; ////////////////////click함수/////////////////////////////
+
+
+      // 공통 이미지 변경 대상 : #mbox img//////////////////
+      var tg = document.querySelector("#mbox img");
+      // 한번만 변수에 할당하여 재사용한다.
+
+      // 공통 이미지 텍스트 변경대상: .imgtxt
+      var itxt = document.querySelector(".imgtxt")
+
+
+      
+      /* //////////////////////////////////////////
+          함수명 : chgImg
+          기능 : 이미지의 src를 변경한다.
+          -> 할당형 익명함수
+      
+      */ //////////////////////////////////////////
+      var chgImg = function () {
+
+          /*  console.log("이미지변경함수!"); */
+          //1. 변경내용 : 대상이미지의 src 속성 변경
+          //변경규칙 : 현재 이미지 번호 +1 (단,7번 이후는 1번으로)
+
+          tg.src = "./images/img" + num + ".jpg";
+
+
+          //2. 이미지텍스트 변경하기
+          itxt.innerText = txt[num - 1];
+          //대상 : .imgtxt -> itxt변수에 담김
+          //변경할 내용은 txt 배열변수에 담김
+          //배열번호는 이미지번호인 num보다 1작다.
+          //txt[num-1] -> 해당배열번호임.
+
+
+          //3. 이미지 텍스트 글자색 변경하기
+          itxt.style.color = tcolor[num-1];
+          //대상: .imgtxt -> itxt변수
+          //변경은 style.color로 변경하자
+          //변경값은 tcolor배열변수에 있음
+          //배열번호는 이미지번호인 num보다 1작다!
+          //tcolor[num-1] -> 해당배열번호임.
+
+      }; ////////////////////chgImg 함수////////////////////////
+
+      // 자동넘김 버튼대상 : .abtn
+      var abtn = document.querySelectorAll(".abtn button");
+
+      // 자동넘김 버튼 클릭시
+      abtn[0].onclick = function(){
+
+          //호출확인
+          console.log("자동넘김");
+
+      };/////////////click 이벤트 함수////////////////////////////
+
+
+      /* 
+        [ JS 타이밍 함수 : Timing function ]
+
+        1. setInterval(함수,시간)
+        - 일정시간 간격으로 함수를 호출.
+        - 시간은 1/1000초임, 단위없음(ex.1000->1초)
+        -> 인터벌함수를 지울때는 변수에 담고 아래 함수를 호출한다.
+        clearInterval(변수)
+
+
+        2. setTimeout(함수,시간)
+        - 일정시간 후 한번만 함수를 호출함
+        - 시간: 1/1000초, 단위없음
+        -> 타임아웃함수를 지울때는 변수에 담고 아래함수를 호출한다.
+        -> clearTimeout(변수)
+
+
+
+
+
+
+      
+      */
+
+
+
+    }); ////////////////////로드구역///////////////////////////////
+  </script>
+</head>
+
+<body>
+
+  <!-- 갤러리 부모박스 -->
+  <div id="wrap">
+    <!-- 타이틀 -->
+    <h1>Rolling Gallery</h1>
+    <!-- 왼쪽이동버튼 -->
+    <a href="#" class="btn lb">
+      <img src="./images/left_btn.png" alt="왼쪽버튼">
+    </a>
+    <!-- 메인이미지박스 -->
+    <div id="mbox">
+      <img src="./images/img1.jpg" alt="메인이미지">
+    </div>
+    <!-- 오른쪽이동버튼 -->
+    <a href="#" class="btn rb">
+      <img src="./images/right_btn.png" alt="오른쪽버튼">
+    </a>
+  </div>
+
+  <!-- 이미지별 설명 텍스트 출력박스 -->
+  <h2 class="imgtxt">
+    노랑잉꼬가 먹이를 콕콕 찍어먹어요~^_^
+  </h2>
+
+  <!-- 자동넘김 버튼박스 -->
+  <div class="abtn">
+      <button class="start">
+          자동넘김
+      </button>
+      <button class="end">
+          멈춤
+      </button>
+  </div>
+
+
+
+
+
+</body>
+
+</html>
