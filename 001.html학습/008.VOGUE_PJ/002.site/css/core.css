@@ -3,6 +3,17 @@
 
 
 /* 공통 class */
+
+
+/* 배경이미지 설명(또는 숨길글자) 클래스 */
+.ir{
+  display:block; width:0; height:0; overflow:hidden;
+  
+}
+
+
+
+
 /* 속박스 */
 .ibx{
   max-width: 1300px;  margin:0 auto;
@@ -59,8 +70,15 @@
 }
 
 /* .pt2 아래 .cbx만 플로팅과 3등분 적용 */
+.pt2 .rbxIn{/* 3등분박스의 직계부모 */
+  display:flex;/* flex는 직계부모에게 준다. */
+}
 .pt2 .cbx {
-  float:left; width: 33.33%;
+  /* flex 자식요소로 등분할 할 경우 flex:1만 설정. */
+  flex:1; 
+
+  /* float으로 설정할경우 가로크기를 %로 계산하여 등분해야함. */
+  /* float:left; width: 33.33%; */
 }
 
 /* 배경이미지 공통 */
