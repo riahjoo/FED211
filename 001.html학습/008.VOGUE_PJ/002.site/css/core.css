@@ -1,6 +1,21 @@
 @charset "utf-8";
 /* VOGUE PJ 공통 클래스, 웹폰트 - core.css */
 
+/* 웹폰트 */
+/* pistilli체 */
+@import url('http://fonts.cdnfonts.com/css/pistilli');
+/* font-family: 'Pistilli', sans-serif; */
+
+/* Roboto체 + Roboto Condensed체 + */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@300&display=swap');
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif; */
+
+/* 나눔바른고딕 */  
+@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css");
+/* font-family: 'NanumBarunGothic', sans-serif; */
+
+
 
 /* 공통 class */
 
@@ -8,7 +23,7 @@
 /* 배경이미지 설명(또는 숨길글자) 클래스 */
 .ir{
   display:block; width:0; height:0; overflow:hidden;
-  
+
 }
 
 
