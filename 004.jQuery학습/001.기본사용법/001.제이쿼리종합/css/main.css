@@ -19,7 +19,9 @@ body {
     background: url(../images/bg2.jpg) no-repeat center/cover;
 }
 
-.tit {
+
+/* 타이틀 */
+.tit { 
     position: absolute;
     top: 0;
     left: 50%;
@@ -38,7 +40,19 @@ body {
     text-shadow: 2px 2px 2px #000;
 
     z-index: 999999;
+    transition:3s ease-in;
 
+}
+
+/* .tit에 .on을 주면 값 변경하기 */
+.tit.on{
+    top:50%; 
+    transform: translateX(-50%) rotate(45deg);
+}
+/* 두번째 변경 */
+.tit.on2{
+    top:95%;
+    transform: translateX(-50%) rotate(6deg);
 }
 
 .building {

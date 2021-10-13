@@ -424,7 +424,7 @@ $(function () { ////////////jQB////////////
 
 
     // 3-6. '치료주사방으로!' 버튼 //////////////////
-    btns.eq(4).click(function () {
+    btns.eq(5).click(function () {
         //console.log("윗층으로 도망가! 버튼!");
 
         // 1. 자기자신 버튼 없애기
@@ -450,7 +450,7 @@ $(function () { ////////////jQB////////////
             top: tval + "px",
             left: lval + "px"
 
-            
+
         }, 1000, function () { // 콜백함수 (애니후 실행!) //
 
             // 1. 주사기돌기 (주사기는 하나뿐)
@@ -463,11 +463,219 @@ $(function () { ////////////jQB////////////
                 zIndex:"9999"// 주인공보다 위.
 
             });////////////css//////////
-             
+
+
+            // 주사놓은 후 (1.5초후) 다시 미니언즈2로 바꾸기
+            setTimeout(() => {
+
+                // 미니언즈 이미지 변경하기
+                mi.find("img").attr("src","images/m2.png");
+                // 메시지 넣기
+                msg.text("치료완료!").fadeIn(200).delay(1000)
+                .fadeIn(200,
+                    ()=>{msg.text("이제,조금만 더 가면 탈출이다.");})
+                    
+                // 주사기 없애기
+                $(".inj").remove();
+                // remove() 선택요소 삭제하기
+
+
+                // 6. 다음변경 버튼 보이기
+                btns.eq(6).fadeIn(200);
+                
+
+            }, 1500); /////////타임아웃////////////
+
+            
 
         }); ////////// animate //////////
 
     }); /// 3-6. '치료주사방으로!' 버튼 click ////////
+
+
+
+
+    // 3-7. '3번방으로!' 버튼 //////////////////
+    btns.eq(6).click(function () {
+        //console.log("윗층으로 도망가! 버튼!");
+
+        // 1. 자기자신 버튼 없애기
+        $(this).slideUp(400);
+
+        // 2. 메시지 지우기
+        msg.fadeOut(200);
+        // fadeOut(시간) - opacity로 서서히 사라짐
+
+        // 3. 이동할 빌딩 li의 위치정보 알아내기!
+
+        // 이동할 li 타겟 -> bd변수에 할당(.building li)
+        let tg = bd.eq(3); // 3번방
+        let tval = tg.offset().top; // 화면에서의 top값
+        let lval = tg.offset().left + win5; // 화면에서의 left값
+        // win5는 미니언즈를 left값 보정함!(화면의 5%)
+        //console.log(tval + "/" + lval);
+
+        // 4. 미니언즈 이동하기
+        // 대상: .mi -> mi변수에 할당!
+        // animate({CSS설정},시간,이징,함수)
+        mi.animate({
+            top: tval + "px",
+            left: lval + "px"
+
+
+        }, 1000, function () { // 콜백함수 (애니후 실행!) //
+
+            // 메시지 보이기
+            msg.text("어서, 윗층으로가자!!").fadeIn(200);
+            // 다음버튼 보이기
+            btns.eq(7).fadeIn(200);
+             
+
+        }); ////////// animate //////////
+
+    }); /// 3-7. '3번방으로!' 버튼 click ////////
+
+
+
+    // 3-8. '1번방으로!' 버튼 //////////////////
+    btns.eq(7).click(function () {
+        //console.log("윗층으로 도망가! 버튼!");
+
+        // 1. 자기자신 버튼 없애기
+        $(this).slideUp(400);
+
+        // 2. 메시지 지우기
+        msg.fadeOut(200);
+        // fadeOut(시간) - opacity로 서서히 사라짐
+
+        // 3. 이동할 빌딩 li의 위치정보 알아내기!
+
+        // 이동할 li 타겟 -> bd변수에 할당(.building li)
+        let tg = bd.eq(1); // 1번방
+        let tval = tg.offset().top; // 화면에서의 top값
+        let lval = tg.offset().left + win5; // 화면에서의 left값
+        // win5는 미니언즈를 left값 보정함!(화면의 5%)
+        //console.log(tval + "/" + lval);
+
+        // 4. 미니언즈 이동하기
+        // 대상: .mi -> mi변수에 할당!
+        // animate({CSS설정},시간,이징,함수)
+        mi.animate({
+            top: tval + "px",
+            left: lval + "px"
+
+
+        }, 1000, function () { // 콜백함수 (애니후 실행!) //
+
+            // 메시지 보이기
+            msg.text("이제 곧 탈출이닷!").fadeIn(200);
+            // 다음버튼 보이기
+            btns.last().fadeIn(200);
+             
+
+        }); ////////// animate //////////
+
+    }); /// 3-8. '1번방으로!' 버튼 click ////////
+
+
+
+
+    // 3-9. 헬기를 호출! 버튼 //////////////////
+    btns.last().click(function () {
+        //console.log("윗층으로 도망가! 버튼!");
+
+        // 1. 자기자신 버튼 없애기
+        $(this).slideUp(400);
+
+        // 2. 메시지 지우기
+        msg.fadeOut(200);
+        // fadeOut(시간) - opacity로 서서히 사라짐
+
+        // 3. 이동할 빌딩 li의 위치정보 알아내기!
+
+        // 이동할 li 타겟 -> bd변수에 할당(.building li)
+        let tg = bd.eq(0); // 0번방
+        let tval = tg.offset().top; // 화면에서의 top값
+        let lval = tg.offset().left + win5; // 화면에서의 left값
+        // win5는 미니언즈를 left값 보정함!(화면의 5%)
+        //console.log(tval + "/" + lval);
+
+        // 4. 미니언즈 이동하기
+        // 대상: .mi -> mi변수에 할당!
+        // animate({CSS설정},시간,이징,함수)
+        mi.animate({
+            top: tval + "px",
+            left: lval + "px"
+
+
+        }, 1000, function () { // 콜백함수 (애니후 실행!) //
+
+            // 메시지 보이기
+            msg.text("도와줘요!!").fadeIn(200);
+
+            // 좀비들 최종추적!!
+            // 좀비는? bd.eq(1) 1번방에 있는 좀비들
+            bd.eq(1).find(".mz")
+            .fadeIn(200,function(){ // 콜백함수 (애니후 실행)
+
+                // 좀비들 움직이기
+                // this키워드 === bd.eq(1).find(".mz")
+                $(this).animate({
+
+                    right:tg.width()*1.3 + "px"
+                    // li하나의 width크기의 1.3배만큼 right에서 이동
+
+                },5000);///// animate /////
+
+                // 헬기 등장
+                $(".heli").animate({
+
+                    left:"20%"
+
+                },2000, function(){///////// 콜백함수(애니후)
+                    // 주인공이 헬기에 탄 이미지로 변경.
+                    $(this).attr("src","images/heli2.png");
+                    mi.hide();// display:none 처리
+
+
+                }).delay(1000)// 1초지연
+                .animate({
+                    // 조금 이동하기
+                    left:"70%"
+
+
+                },2000,function(){
+                    // 헬기조정사 좀비로 바뀐 이미지로 변경
+                    $(this).attr("src","images/heli3.png")
+
+                })
+                .animate({// 마지막 화면밖으로 10초간 천천히 나가기 
+                    left:"100%"
+
+                },10000,function(){ // 콜백함수(애니후)
+
+                    // 미리 지정한 class를 타이틀에 줘서 간판 떨어짐
+                    // 대상: .tit -> tit변수
+                    tit.addClass("on");
+                    // addClass(클래스명) - 선택요소에 class넣기
+                    // 3초후에 class "on2" 넣기
+                    setTimeout(() => {
+
+                        tit.addClass("on2");
+
+                                               
+                    }, 3000);
+
+
+                })
+
+            });//////////fadeIn/////////
+          
+        }); ////////// animate //////////
+
+    }); /// 3-9. 헬기를 호출! 버튼 click ////////
+
+    
 
 
 
