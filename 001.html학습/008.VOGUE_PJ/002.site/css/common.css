@@ -262,15 +262,17 @@
   text-align: center;line-height: 35px;
   z-index:999;
   color:#fff; border-radius:4px 4px 0 0;/* 왼위 오른위 오른아래 왼아래 */
+  display:none;
 
   /* 트랜지션: 속시이지 */
-  transition:.3s;
+  transition: background-color .3s;
 }
+
+ 
 
 /* 탑버튼 마우스 오버시 */
 .tbtn:hover {
   background-color:#f00;
+
 }
-
-
 
