@@ -14,9 +14,9 @@ $(function(){/////////// jQB /////////////////
 
 
       /// 2. GNB 메뉴 링크 연결하기 ///
-        // 대상 : .gnb a
+        // 대상 : .gnb a + .mongnb a (모바일용 gnb포함)
         // 이벤트 : click -> click() 메서드사용
-        $(".gnb a").click(function(e){
+        $(".gnb a, .mognb a").click(function(e){
             // e-이벤트전달변수 : 여러가지 이벤트 관련 설정가능
             
             // 1. 기본 이동속성 막기(a태그 기본속성)
