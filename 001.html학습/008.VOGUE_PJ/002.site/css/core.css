@@ -17,9 +17,11 @@
 font-family: 'Roboto Condensed', sans-serif; */
 
 /* 나눔바른고딕 */  
-@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css");
-/* font-family: 'NanumBarunGothic', sans-serif; */
-
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-weight: 400;
+  src: url(NanumBarunGothicSubset.woff) format('woff');
+ }
 
 
 /* 공통 class */
