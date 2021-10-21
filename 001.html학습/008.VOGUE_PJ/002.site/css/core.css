@@ -3,8 +3,13 @@
 
 /* 웹폰트 */
 /* pistilli체 */
-@import url('http://fonts.cdnfonts.com/css/pistilli');
-/* font-family: 'Pistilli', sans-serif; */
+@font-face {
+  font-family: 'Pistilli';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Pistilli-Roman.woff) format('woff');
+}
+
 
 /* Roboto체 + Roboto Condensed체 + */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@300&display=swap');
