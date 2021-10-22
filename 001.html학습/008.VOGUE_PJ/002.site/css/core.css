@@ -30,12 +30,7 @@
 
 
 /* 나눔바른고딕 */  
-@font-face {
-  font-family: 'NanumBarunGothic';
-  font-weight: 300;
-  src:url(NanumBarunGothicLightSubset.woff) format('woff');
-  }
-
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
 
 /* 공통 class */
 
@@ -125,7 +120,7 @@
 .cbx h2{
   position:absolute; bottom:0; width:100%;
   box-sizing: border-box;
-  font-family:'Pistilli','NanumBarunGothic';
+  font-family:'Pistilli','Nanum Gothic';
   font-size:33px; color:#fff; text-align:center;
   padding:50px;
   font-weight:lighter;
