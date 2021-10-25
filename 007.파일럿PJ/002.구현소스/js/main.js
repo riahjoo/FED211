@@ -57,14 +57,35 @@ $(function(){///////////jQB///////////////////
       // 슬라이드 위치값
       let spos;
 
+      // 이징변수
+      let easing = "easeOutQuint";
+
+      // 화면커버(광드래그 막기)
+      let cover = $(".cover");
+
+      // 슬라이드 순번 변수
+      let sno = 0; // 첫슬라이드는 0번 (블릿li순번도 0번부터)
+
+      // 블릿요소
+      let indic = $(".bindic li");
+
+      // 슬라이드 개수
+      let scnt = slide.find("li").length;
+
+      //console.log("슬수:"+scnt);
+
       // 대상: .slide  -> slide 변수
       
       // 이벤트: dragstop -> 
       slide.on("dragstop",function(){
 
+            // 광드래그 막기 커버 보이기 
+            cover.show();
+
             // 슬라이드 위치값 구하기
             spos = slide.offset().left; // offset().left 화면 왼쪽 기준선 left 위치
             //console.log("슬위:"+spos);
+
 
             /////////////// 이동 구현하기 //////////////////////
             // 1. 오른쪽에서 들어오는 이동 -> left: -110% 보다 작을 때
@@ -73,21 +94,31 @@ $(function(){///////////jQB///////////////////
             if(spos < -win*1.1){
 
                 // 슬라이드가 -200%위치로 이동한다.
-                slide.animate({
+                // stop() 메서드는 animate가 큐에 쌓이는 것을 막는다.
+                slide.stop().animate({
 
                     left: -win*2 + "px"
 
-                },600,"easeOutQuint",function(){// 콜백함수(이동후)
+                },600,easing,function(){// 콜백함수(이동후)
                     // 변경대상 : .slide -> slide변수
                     slide
                     // 첫번째 슬라이드 li를 맨뒤로 보내기
                     .append(slide.find("li").first())
                     // 이 때 left값을 -100%위치로 고정해야함
                     .css({left:-win+"px"});
+                    // 광드래그 커버 지우기
+                    cover.hide();
+                });///// animate //////////////
+                
+                // 블릿순번 변경하기 : 오른쪽이동은 증가
+                sno++;
+                // 한계수 : 슬라이드 수와 같아지면 첫번호로!
+                if(sno===6) sno=0;
 
-                });
+                // 블릿변경함수 호출
+                chgIndic();
 
-            }
+            }////////////if 문 : 오른쪽에서 들어오는 이동 ///////////
 
             // 2. 왼쪽에서 들어오는 이동 -> left: -90% 보다 클때 
             // -90% 구하기 -> -win*0.9
@@ -95,33 +126,55 @@ $(function(){///////////jQB///////////////////
             else if(spos > -win*0.9){
 
                 // 슬라이드가 -0위치로 이동한다.
-                slide.animate({
+                slide.stop().animate({
 
                     left: "0px"
-                },600,"easeOutQuint",function(){ // 콜백함수(이동후)
+                },600,easing,function(){ // 콜백함수(이동후)
                     // 대상: .slide -> slide변수
                     slide
                     // 맨뒤의 슬라이드 li를 맨 앞으로 이동
                     .prepend(slide.find("li").last())
                     .css({left:-win+"px"});
-                });
+                    // 광드래그 커버 지우기
+                    cover.hide();
+                });/////////animate////////////
 
-            }
+                  // 블릿순번 변경하기 : 왼쪽이동은 감소!
+                  sno--;
+                  // 한계수 : -1이 되면 마지막번호로!(슬라이드 개수 -1)
+                  if(sno===-1) sno = scnt - 1;
+
+                  // 블릿변경함수 호출
+                  chgIndic();
+
+            }/////////// else if문 : 왼쪽에서 들어오는 이동 /////////////
 
             // 3. 사이범위 일때 제자리로 돌아오기 //
             // -110% < 범위 < -90%
             else{
                 // 슬라이드가 원위치로 돌아옴
-                slide.animate({
+                slide.stop().animate({
                     left: -win + "px"
-                },300);
+                },300,easing,function(){
+                    // 광드래그 커버 지우기
+                    cover.hide();
+                });
             } ///////////else문 : 사이범위 /////////
-
-
-         
             
-      });///////////////// drag /////////////////////////
+      });///////////////// dragstop /////////////////////////
       ///////////////////////////////////////////////////
+
+
+
+      ///////////// 블릿변경함수 ////////////////////////
+      let chgIndic = () => {
+        // 블릿변경하기 : .bindic li -> indic 변수
+        indic.eq(sno).addClass("on")
+        .siblings().removeClass("on");
+
+        //console.log("블순:"+sno);
+
+      };////////////// chgIndic 함수 ///////////////////
 
 
 
