@@ -48,10 +48,10 @@ $(function(){///////////jQB///////////////////
       $(window).resize(()=>{
 
             win = awin();
-            console.log("윈도가로:"+win);
+            //console.log("윈도가로:"+win);
 
       });///////////resize///////////
-      console.log("윈도우 가로크기:"+win);
+      //console.log("윈도우 가로크기:"+win);
 
       // 현재 슬라이드 위치값 구하기
       // 슬라이드 위치값
@@ -64,7 +64,7 @@ $(function(){///////////jQB///////////////////
 
             // 슬라이드 위치값 구하기
             spos = slide.offset().left; // offset().left 화면 왼쪽 기준선 left 위치
-            console.log("슬위:"+spos);
+            //console.log("슬위:"+spos);
 
             /////////////// 이동 구현하기 //////////////////////
             // 1. 오른쪽에서 들어오는 이동 -> left: -110% 보다 작을 때
@@ -77,7 +77,15 @@ $(function(){///////////jQB///////////////////
 
                     left: -win*2 + "px"
 
-                },700);
+                },600,"easeOutQuint",function(){// 콜백함수(이동후)
+                    // 변경대상 : .slide -> slide변수
+                    slide
+                    // 첫번째 슬라이드 li를 맨뒤로 보내기
+                    .append(slide.find("li").first())
+                    // 이 때 left값을 -100%위치로 고정해야함
+                    .css({left:-win+"px"});
+
+                });
 
             }
 
@@ -90,7 +98,13 @@ $(function(){///////////jQB///////////////////
                 slide.animate({
 
                     left: "0px"
-                },700);
+                },600,"easeOutQuint",function(){ // 콜백함수(이동후)
+                    // 대상: .slide -> slide변수
+                    slide
+                    // 맨뒤의 슬라이드 li를 맨 앞으로 이동
+                    .prepend(slide.find("li").last())
+                    .css({left:-win+"px"});
+                });
 
             }
 
