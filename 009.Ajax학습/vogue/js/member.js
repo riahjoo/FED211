@@ -61,11 +61,11 @@ $(function () { /////// jQB ///////////////////
             // 3. 빈값일 경우 "필수입력" 메시지 출력
             if (cv === "") {
                 $(this).siblings(".msg").text("필수입력!")
-                .removeClass("on");
+                    .removeClass("on");
                 // siblings(필터) -> 선택요소 이외의 형제들 중 특정요소
 
                 // 통과여부
-                pass=false;
+                pass = false;
 
 
             } /////////// if문: 빈값일때 ////////////
@@ -81,7 +81,7 @@ $(function () { /////// jQB ///////////////////
                 if (!res) { //!(NOT연산자)로 결과 반대로
 
                     $(this).siblings(".msg").text("영문자로 시작하는 6~20글자 영문자/숫자").removeClass("on"); // 글자색 변경 class
-                    pass=false;
+                    pass = false;
 
                 } //////// if문 : 결과가 false일때 ////
                 else {
@@ -106,7 +106,7 @@ $(function () { /////// jQB ///////////////////
                 if (!res) { // !(NOT연산자)로 결과반대로
 
                     $(this).siblings(".msg").text("특수문자,문자,숫자포함 형태의 5~15자리")
-                    pass=false;
+                    pass = false;
                 } /////// if문 : 결과가 false일때 ////
                 else { // 통과시 내용비우기 :
 
@@ -123,7 +123,7 @@ $(function () { /////// jQB ///////////////////
                 if (cv !== $("#mpw").val()) {
 
                     $(this).siblings(".msg").text("비밀번호가 일치하지 않습니다.");
-                    pass=false;
+                    pass = false;
                 } //if문 : 결과가 같지 않으면 true //
                 else { // 통과시 내용비우기 :
 
@@ -138,19 +138,19 @@ $(function () { /////// jQB ///////////////////
             else if (cid === "email1") {
 
                 // 이메일 주소 만들기
-                    let comp = eml1.val() + "@" +
-                    (seleml.val()  === "free" ? eml2.val() : seleml.val());
-                    // 이메일 뒷주소
-                    // 비?집:놀이동산;
-                    // 선택박스 value값이 "free"이면 직접입력(eml2)값을
-                    // 아니면 선택박스의 선택값을 넣어준다.
-                    console.log("결과:"+comp);
+                let comp = eml1.val() + "@" +
+                    (seleml.val() === "free" ? eml2.val() : seleml.val());
+                // 이메일 뒷주소
+                // 비?집:놀이동산;
+                // 선택박스 value값이 "free"이면 직접입력(eml2)값을
+                // 아니면 선택박스의 선택값을 넣어준다.
+                console.log("결과:" + comp);
 
 
                 // 이메일 검사처리함수 호출!
-                    resEml(comp);
+                resEml(comp);
 
-            
+
             } /////////////// else if문 : 이메일 항목일때 ///////////
 
 
@@ -169,31 +169,31 @@ $(function () { /////// jQB ///////////////////
     ////////////////////이메일 검사 결과처리 함수 ////////////////
     /////////////////////////////////////////////////////////////
 
-    let resEml = comp => {// comp - 완성된 이메일 주소
+    let resEml = comp => { // comp - 완성된 이메일 주소
 
         //console.log("결과처리함수:"+comp);
 
         // 1. 이메일 정규식 검사
-        let res = vReg(comp,"eml");
-        console.log("이메일검사결과:"+res);
+        let res = vReg(comp, "eml");
+        console.log("이메일검사결과:" + res);
 
         // 2. 이메일 검사결과 메시지 출력하기
-        if(res){/// 통과시 ///////////////////////
+        if (res) { /// 통과시 ///////////////////////
 
-             eml1.siblings(".msg").text("적합한 이메일 형식입니다.")
-             .addClass("on");// 글자색 변경 class
-        }//////////if문 : 결과가 true일때 /////////
-        else{///// 불통과시 //////////////////////////
+            eml1.siblings(".msg").text("적합한 이메일 형식입니다.")
+                .addClass("on"); // 글자색 변경 class
+        } //////////if문 : 결과가 true일때 /////////
+        else { ///// 불통과시 //////////////////////////
 
             eml1.siblings(".msg").text("맞지않는 이메일 형식입니다.")
-            .removeClass("on");//글자색 복원
-            pass=false;
+                .removeClass("on"); //글자색 복원
+            pass = false;
 
-        }//////else문 : 결과가 false 일때 /////////////
+        } //////else문 : 결과가 false 일때 /////////////
 
-        
 
-    };//////////// resEml함수 ////////////////////////////////
+
+    }; //////////// resEml함수 ////////////////////////////////
 
     //////////////////////////////////////////////////////////
     ////// 키보드 입력시 이메일 체크하기 ///////////////////////
@@ -215,17 +215,17 @@ $(function () { /////// jQB ///////////////////
     let seleml = $("#seleml");
 
     // 이벤트 대상 : #email1, #email2 /////////
-    $("#email1, #email2").on("keyup",function(){
+    $("#email1, #email2").on("keyup", function () {
 
         // 1. 현재 이벤트 대상 아이디 읽어오기
         let cid = $(this).attr("id");
-        console.log("현재아이디:"+cid);
+        console.log("현재아이디:" + cid);
 
 
         // 2. 현재 입력된 값 읽어오기
         let cv = $(this).val();
-        console.log("입력값:"+cv);
-        
+        console.log("입력값:" + cv);
+
         // 3. 이메일 뒷주소 셋팅하기
         let backeml = cid === "email1" ? seleml.val() : eml2.val();
         // 조건연산자로 선택박스 값 또는 직접입력값을 할당한다.
@@ -233,17 +233,17 @@ $(function () { /////// jQB ///////////////////
 
         // 4. 선택박스의 선택값이 "free"(직접입력)이면 이메일
         // 뒷주소변경 
-        if(seleml.val()==="free") backeml = eml2.val();
-        
+        if (seleml.val() === "free") backeml = eml2.val();
+
         // 5. 이메일 전체주소 조합하기
         let comp = eml1.val() + "@" + backeml;
-        console.log("이멜주소:"+comp);
+        console.log("이멜주소:" + comp);
 
         // 6. 이메일 검사 결과 함수 호출
         resEml(comp);
 
 
-    });//////////// keyup ///////////////////////
+    }); //////////// keyup ///////////////////////
 
 
     //////////////////////////////////////////////////////
@@ -252,25 +252,25 @@ $(function () { /////// jQB ///////////////////
     // 검사시점 : 선택박스 변경할 때
     // 이벤트 : change
     // 이벤트 대상 : #seleml -> seleml변수
-    seleml.change(function(){
+    seleml.change(function () {
 
         // 1. 선택박스 변경된 값 읽어오기
         let cv = $(this).val();
-        console.log("선택자:"+cv);
+        console.log("선택자:" + cv);
 
         // 2. 선택옵션별 분기문
-        if(cv === "init"){// "선택해주세요"선택시
+        if (cv === "init") { // "선택해주세요"선택시
 
             // 메시지 출력
             eml1.siblings(".msg").text("이메일 옵션 선택필수!")
-            .removeClass("on");// 글자색 복원
+                .removeClass("on"); // 글자색 복원
 
             // 직접입력창 숨기기
             eml2.fadeOut(300);
 
 
-        }////// if문 : init일때 //////
-        else if(cv === "free"){
+        } ////// if문 : init일때 //////
+        else if (cv === "free") {
 
             // 1. 직접입력창 보이기(fadeIn()+값초기화(val())+ 포커스 주기(focus)
             eml2.fadeIn(300).val("").focus();
@@ -282,8 +282,8 @@ $(function () { /////// jQB ///////////////////
             resEml(comp);
 
 
-        }/////// else if문 : free 일때 /////
-        else {// 기타 이메일 선택시
+        } /////// else if문 : free 일때 /////
+        else { // 기타 이메일 선택시
 
             // 1. 직접입력창 숨기기
             eml2.fadeOut(300);
@@ -295,11 +295,11 @@ $(function () { /////// jQB ///////////////////
             resEml(comp);
 
 
-        }//////// else문 : 기타 이메일 선택시 ////////
+        } //////// else문 : 기타 이메일 선택시 ////////
 
 
 
-    });///////// change 함수 ///////////////
+    }); ///////// change 함수 ///////////////
 
     //////////////////////////////////////////////////////////////////
     ///////////////// 가입하기(submit) 버튼 클릭시 처리하기/////////////
@@ -312,7 +312,7 @@ $(function () { /////// jQB ///////////////////
     // 이벤트 발생메서드: trigger(이벤트명)
     //////////////////////////////////////////////////////////////////
     let pass; // 검사용변수
-    $("#btnj").click(function(e){// 서브밋버튼 클릭시
+    $("#btnj").click(function (e) { // 서브밋버튼 클릭시
 
         // 1. 서브밋 기능막기
         e.preventDefault();
@@ -325,42 +325,101 @@ $(function () { /////// jQB ///////////////////
         // 이벤트발생 메서드 : trigger(이벤트명) -> blur이벤트 발생
 
         $("input[type=text][id!=email2][class!=search],input[type=password]")
-        .trigger("blur");
+            .trigger("blur");
 
-        console.log("통과여부:"+pass);
+        console.log("통과여부:" + pass);
+
+
 
         // 4. 검사결과에 따라 메시지 보이기 및 처리 //
-        if(pass){/////// 통과시 !
+        if (pass) { /////// 통과시 !
 
-            // 메시지 띄우기
-            alert("회원가입을 축하드립니다.짝짝짝")
-            // 원래는 post방식으로 DB에 회원정보 입력후 입력완료시에
-            // 위의 메시지를 띄워준다.
-
-            // 로그인페이지로 이동하기
-            location.replace("login.html");
-            // location.href = "login.html";
             /* 
-                location.href는 뒤로 가기시 history가 살아있어서 
-                보안상 위험하다. 따라서 현재 페이지에 그대로 덮어쓰기로
-                위치 이동을 하는 방법을 쓴다.
+                [ Ajax를 이용한 POST방식으로 DB에 데이터 입력하기. ]
+
+                AJAX = Asynchronous Javascript and XML
+
+                - 비동기 통신이란? 쉽게 말해서 페이지가 새로고쳐지지 않고 그대로 있으면서
+                일부분만 서버통신을 하는 것을 말한다.
+                - 제이쿼리는 POST방식으로  AJAX를 할 수 잇다.
                 
-                location.replace(이동주소)
-                -> 현재 페이지 history가 덮어써져서 사라진다.
-                (전페이지 돌아가기 안됨.)
+                [ POST방식 AJAX메서드 ]
+                $.post(URL,data,callback)
+                $.post(전송할 페이지,전송할 데이터,전송후 실행함수)
+            
+            
             
             */
 
+            $.post(
+                // 1. 전송할 페이지
+                "process/ins.php",
+                // 2. 전송할 데이터 - {속성:값} 객체형식
+                {
+                    // 1.아이디
+                    "mid": $("#mid").val(),
+                    // 2.비번
+                    "mpw": $("#mpw").val(),
+                    // 3.이름
+                    "mnm": $("#mnm").val(),
+                    // 4.성별
+                    "gen": $(":radio[name=gen]:checked").val(),
+                    // 5-1.이메일 앞주소
+                    "email1": $("#email1").val(),
+                    // 5-2.이메일 뒷주소
+                    "seleml": $("#seleml").val(),
+                    // 5-3.직접입력 이메일 뒷주소
+                    "email2": $("#email2").val()
+                },
+                // 3. 전송후 실행함수
+                function (res) { // res 리턴된 결과값 받음!
+                    /// 성공시! ///
+                    if (res === "ok") {
+
+                        // 메시지 띄우기
+                        alert("회원가입을 축하드립니다.짝짝짝")
+                        // 원래는 post방식으로 DB에 회원정보 입력후 입력완료시에
+                        // 위의 메시지를 띄워준다.
+
+                        // 로그인페이지로 이동하기
+                        location.replace("login.php");
+                        // location.href = "login.html";
+                        /* 
+                            location.href는 뒤로 가기시 history가 살아있어서 
+                            보안상 위험하다. 따라서 현재 페이지에 그대로 덮어쓰기로
+                            위치 이동을 하는 방법을 쓴다.
+                            
+                            location.replace(이동주소)
+                            -> 현재 페이지 history가 덮어써져서 사라진다.
+                            (전페이지 돌아가기 안됨.)
+
+                        */
+
+                    } /////// if문 : 성공시 //////
+                    else {
+                        // 실패메세지 찍기
+                        alert(res);
 
 
-        }//////////// if /////////////////
+                    } //////// else문 : 실패시 ////
 
-        else {// 불통과시!
+                } /////////// 전송후 실행함수 /////////
+
+
+            ); /////// post 메서드 //////////////
+
+
+
+
+
+
+        } //////////// if /////////////////
+        else { // 불통과시!
 
             alert("입력을 수정하세요!");
-            
 
-        }/////////// else ///////////////////
+
+        } /////////// else ///////////////////
 
 
     });

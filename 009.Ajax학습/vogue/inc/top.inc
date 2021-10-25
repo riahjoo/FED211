@@ -33,10 +33,10 @@
                             <a href="#">회사소개</a>
                         </li>
                         <li>
-                            <a href="#">광고 및 제휴</a>
+                            <a href="login.php">보그 로그인</a>
                         </li>
                         <li>
-                            <a href="#">개인정보 처리방침</a>
+                            <a href="member.php">보그 회원가입</a>
                         </li>
                     </ol>
                 </li>
@@ -104,7 +104,7 @@
     <div class="mwrap">
         <!-- 입력창박스 -->
         <div id="search">
-            <input type="text">
+            <input type="text" class="search">
         </div>
         <!-- 검색버튼 -->
         <button class="scbtn fi fi-search">
