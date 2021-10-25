@@ -1,6 +1,6 @@
  
  
- <footer class="info ibx">
+<footer class="info ibx">
             <!-- 3-1. 하단로고 -->
             <div class="blogo">
                 <img src="images/footer_logo.png" alt="하단로고">
@@ -27,7 +27,11 @@
                     <a href="#">처리방침</a>
                 </li>
             </ul>
-
-      
-
 </footer>
+
+
+<!-- 위로가기 버튼 -->
+
+    <a href="#" class="tbtn fi fi-angle-up">
+        <span class="ir">위로가기버튼</span>
+    </a>

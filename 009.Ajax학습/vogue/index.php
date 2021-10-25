@@ -23,7 +23,7 @@
 <body>
     <!-- 1. 상단영역 -->
     <div id="top">
-  
+        <?php include "inc/top.inc" ?>
     </div> <!-- #top -->
 
     <!-- 2. 메인영역 -->
@@ -108,16 +108,8 @@
 
     <!-- 3. 하단영역 -->
     <div class="bgc">
-       
+        <?php include "inc/info.inc" ?>
     </div>
-
-    <!-- 위로가기 버튼 -->
-    <a href="#" class="tbtn fi fi-angle-up">
-        <span class="ir">위로가기버튼</span>
-    </a>
-
-
-
 
 
 </body>
