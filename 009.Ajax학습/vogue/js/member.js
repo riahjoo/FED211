@@ -86,7 +86,67 @@ $(function () { /////// jQB ///////////////////
                 } //////// if문 : 결과가 false일때 ////
                 else {
 
-                    $(this).siblings(".msg").text("훌륭한 아이디네요~!").addClass("on"); // 글자색 변경 class
+                    /* 
+                        [ Ajax로 중복아이디 검사하기 ]
+
+                        ajax 처리 유형 2가지
+
+                        1) post 방식 처리 메서드
+                        - $.post(URL,data,callback)
+
+                        2) get 방식 처리 메서드 
+                        - $.get(URL,callback)
+
+                        3) 위의 2가지 유형 중 선택처리 메서드
+                        - $.ajax(전송할페이지,전송방식,보낼데이터,전송할데이터타입,비동기옵션,성공처리,실패처리)
+                    
+                    */
+                        $.ajax({
+                            //1.전송할페이지
+                            url:"process/chkID.php",
+                            //2.전송방식(get/post)
+                            type:"post",
+                            //3.보낼데이터
+                            data:{
+                                "mid" : $("#mid").val()
+                            },
+                            //4.전송할데이터타입
+                            dataType:"html",
+                            //5.비동기옵션(false로 해야 JS파일의 전역변수를 여기에서 사용가능함) -> 여기서는 pass를 쓰기위함.
+                            async:false,
+                            //6.성공처리
+                            success:function(res){
+                                // alert(res);
+                                if(res==="ok"){// DB에 없는 ID
+
+                                    $("#mid").siblings(".msg").text("훌륭한 아이디네요~!").addClass("on"); // 글자색 변경 class
+
+                                }//////////if///////////////
+                                else{// DB에 이미 같은 ID가 있는 경우
+                                    
+                                    $("#mid").siblings(".msg").text("사용중인 아이디입니다~!").removeClass("on"); // 글자색 변경 class
+
+                                    // 통과여부 false
+                                    pass=false;
+
+
+                                }//////// else /////////////
+    
+                    
+                            },////////// success함수 ////////////////
+                            //7.실패처리
+                            // xhr - XMLHttpRequest 객체
+                            // status - 실패상태코드
+                            // error - 에러결과값
+                            error: function(xhr,status,error){
+                                alert("연결실행실패:"+error);
+                            }/////////// error함수  ////////////////+
+
+
+
+                        });///////////////////// ajax 메서드 ////////////////////////
+
+                        
 
 
                 } //////// else문 : 결과가 true일때 ////
@@ -348,7 +408,6 @@ $(function () { /////// jQB ///////////////////
                 $.post(전송할 페이지,전송할 데이터,전송후 실행함수)
             
             
-            
             */
 
             $.post(
@@ -370,6 +429,7 @@ $(function () { /////// jQB ///////////////////
                     "seleml": $("#seleml").val(),
                     // 5-3.직접입력 이메일 뒷주소
                     "email2": $("#email2").val()
+
                 },
                 // 3. 전송후 실행함수
                 function (res) { // res 리턴된 결과값 받음!
@@ -407,10 +467,6 @@ $(function () { /////// jQB ///////////////////
 
 
             ); /////// post 메서드 //////////////
-
-
-
-
 
 
         } //////////// if /////////////////
