@@ -127,12 +127,14 @@ $(function(){//////////// jQB //////////////
           el:"#cont",//바인딩할 대상(변경요소 포함 부모요소)
           data:{
             items:{},// json데이터 종류(빈객체형 셋팅)
-            catName:"Fashion"
+            catName: pm // 파라미터로 넘어온 경로값 넣기
           },
           mounted: function(){
-            axios.get("real.json")
+            axios.get("./js/real.json")
             .then(response  => (this.items = response))
           }
+
+          // 파일경로는 html위치에서 
 
         });//////////vue/////////////
 
