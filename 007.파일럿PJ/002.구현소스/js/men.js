@@ -104,7 +104,7 @@ $(function () { /// jQB ////////////////////////////
   // 배너에 스와이퍼 플러그인 적용하기 /// 
   /////////////////////////////////////
   var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
+    slidesPerView: 3,
     spaceBetween: 0,
     loop: true,
     autoplay: {
